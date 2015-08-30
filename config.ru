@@ -1,4 +1,7 @@
-require File.join(File.dirname(__FILE__), 'afo.rb')
+#require all Sinatra::Base descandants in our app
+app_dir = File.join(File.dirname(__FILE__), 'app')  
+require File.join(app_dir, 'afo.rb')
+Dir["#{app_dir}/lib/*.rb"].each { |file| require file }
 
 map "/" do
   run Afo::PublicContent
