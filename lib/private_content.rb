@@ -1,7 +1,5 @@
-require_relative 'base'
-
 module Afo
-  class PrivateContent < Base
+  class PrivateContent < ::Sinatra::Base
 
     get '/?' do 
       erb :'private/index'

@@ -6,5 +6,6 @@ group :development do
   gem 'shotgun'
   gem 'tux'
   gem 'pry'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
+  # gem 'rerun'
 end

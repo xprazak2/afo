@@ -1,7 +1,5 @@
-require_relative 'base'
-
 module Afo
-  class PublicContent < Base
+  class PublicContent < ::Sinatra::Base
 
     get '/' do
       erb :'public/index'
