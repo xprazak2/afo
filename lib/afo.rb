@@ -20,18 +20,19 @@ module Afo
     }
   end
 
-  # require_relative 'user'
-  
   puts "Loading Afo..."
   ::Sinatra::Base.configure(:development) do
     require 'pry'
     require 'pry-byebug'
     puts "Afo running in devel mode"
+    DataMapper::Logger.new($stdout, :debug)
   end 
 
   ::Sinatra::Base.configure(:production) do
     puts "Afo running in production mode"
   end
+  DataMapper.setup(:default, 'postgres://afo:changeme@localhost/afo')
 
-  # DataMapper.finalize.auto_upgrade!
+  require_relative 'user'
+  DataMapper.finalize.auto_upgrade!
 end

@@ -5,7 +5,6 @@ module Afo
     property :id, Serial
     property :username, String, :required => true
     property :password, BCryptHash, :required => true
-
-
+    
   end
 end
