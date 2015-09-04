@@ -31,7 +31,11 @@ module Afo
   ::Sinatra::Base.configure(:production) do
     puts "Afo running in production mode"
   end
-  DataMapper.setup(:default, 'postgres://afo:changeme@localhost/afo')
+
+  require_relative 'settings'
+
+  DataMapper.setup(:default,
+                   "postgres://#{Settings[:db_user]}:#{Settings[:db_password]}@#{Settings[:db_path]}")
 
   require_relative 'user'
   DataMapper.finalize.auto_upgrade!

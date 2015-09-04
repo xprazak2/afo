@@ -1,0 +1,17 @@
+---
+##app wide
+:app_title: "Astonishingly Friendly Owl"
+:app_subtitle: "No bluejays or mockingbirds will be tolerated!"
+
+## db setup
+:db_user: "postgres"
+:db_password: "changeme"
+:db_path: "localhost/postgres"
+
+## privileged access
+:admins: 
+  - :name: "admin1"
+    :password: "changeme" 
+
+  - :name: "admin2" 
+    :password: "changeme"
