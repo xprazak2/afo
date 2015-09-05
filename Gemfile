@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-initializers'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 
