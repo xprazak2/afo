@@ -14,5 +14,6 @@ group :development do
 end
 
 group :test, :development do
+  gem 'minitest', '~> 4.7.5'
   gem "rack-test"
 end
