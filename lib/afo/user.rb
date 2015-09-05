@@ -1,6 +1,6 @@
 module Afo
   class User
-    include DataMapper::Resource
+    include ::DataMapper::Resource
     
     self.raise_on_save_failure = true
 

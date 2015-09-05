@@ -1,6 +1,12 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (4.2.4)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     addressable (2.3.8)
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
@@ -22,6 +28,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.16)
       addressable (~> 2.1)
+    database_cleaner (1.5.0)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -58,11 +65,16 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.16)
       data_objects (= 0.10.16)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
     fastercsv (1.5.5)
+    i18n (0.7.0)
     json (1.8.3)
     json_pure (1.8.2)
     method_source (0.8.2)
-    minitest (4.7.5)
+    minitest (5.8.0)
+    minitest-around (0.3.2)
+      minitest (~> 5.0)
     multi_json (1.11.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -93,12 +105,15 @@ GEM
     sinatra-initializers (0.1.4)
     slop (3.6.0)
     stringex (1.5.1)
+    thread_safe (0.3.5)
     tilt (2.0.1)
     tux (0.3.0)
       ripl (>= 0.3.5)
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
     uuidtools (2.1.5)
 
 PLATFORMS
@@ -106,8 +121,11 @@ PLATFORMS
 
 DEPENDENCIES
   data_mapper
+  database_cleaner
   dm-postgres-adapter
-  minitest (~> 4.7.5)
+  factory_girl
+  minitest
+  minitest-around
   pry
   pry-byebug
   rack-test

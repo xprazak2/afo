@@ -14,6 +14,9 @@ group :development do
 end
 
 group :test, :development do
-  gem 'minitest', '~> 4.7.5'
+  gem 'minitest'#, '~> 4.7.5'
   gem "rack-test"
+  gem "factory_girl"
+  gem "database_cleaner"
+  gem "minitest-around"
 end
