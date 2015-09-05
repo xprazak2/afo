@@ -12,3 +12,7 @@ group :development do
   gem 'pry-byebug'
   # gem 'rerun'
 end
+
+group :test, :development do
+  gem "rack-test"
+end

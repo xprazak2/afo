@@ -1,5 +1,5 @@
 APP_ROOT = "#{File.dirname(__FILE__)}/.."
-$LOAD_PATH.unshift(File.dirname(__FILE__) + '/afo')
+$:.unshift(File.dirname(__FILE__) + '/afo')
 
 require 'sinatra/base'
 require 'sinatra-initializers'
