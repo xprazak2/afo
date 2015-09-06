@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake'
 gem 'sinatra'
 gem 'sinatra-initializers'
 gem 'data_mapper'
@@ -14,9 +15,10 @@ group :development do
 end
 
 group :test, :development do
-  gem 'minitest'#, '~> 4.7.5'
+  gem 'minitest'
   gem "rack-test"
   gem "factory_girl"
   gem "database_cleaner"
   gem "minitest-around"
+  gem "dm-sqlite-adapter"
 end

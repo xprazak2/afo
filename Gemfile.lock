@@ -49,6 +49,9 @@ GEM
       json (~> 1.6)
       json_pure (~> 1.6)
       multi_json (~> 1.0)
+    dm-sqlite-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_sqlite3 (~> 0.10.6)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
     dm-transactions (1.2.0)
@@ -64,6 +67,8 @@ GEM
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
     do_postgres (0.10.16)
+      data_objects (= 0.10.16)
+    do_sqlite3 (0.10.16)
       data_objects (= 0.10.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -88,6 +93,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (10.1.0)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-multi_line (0.3.1)
@@ -123,12 +129,14 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-sqlite-adapter
   factory_girl
   minitest
   minitest-around
   pry
   pry-byebug
   rack-test
+  rake
   shotgun
   sinatra
   sinatra-initializers
