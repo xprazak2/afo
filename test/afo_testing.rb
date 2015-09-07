@@ -9,8 +9,10 @@ module Afo
   ::Sinatra::Base.set :run, false
   
   #data model related
-  # require 'settings'
   require 'user'
+  require 'comic'
+  require 'content'
+  
   DataMapper.setup(:default, 'sqlite::memory:')
   DataMapper.finalize.auto_upgrade!  
 end

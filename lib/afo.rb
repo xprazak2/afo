@@ -1,9 +1,11 @@
 APP_ROOT = "#{File.dirname(__FILE__)}/.."
 $:.unshift(File.dirname(__FILE__) + '/afo')
+$:.unshift(APP_ROOT + '/public')
 
 require 'sinatra/base'
 require 'sinatra-initializers'
 require 'data_mapper'
+require 'dm-timestamps'
 
 module Afo
   ::Sinatra::Base.set :run, false
@@ -13,6 +15,8 @@ module Afo
 
   require 'settings'
   require 'user'
+  require 'comic'
+  require 'content'
   
   DataMapper.setup(:default,
                    "postgres://#{Settings[:db_user]}:#{Settings[:db_password]}@#{Settings[:db_path]}")
