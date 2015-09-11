@@ -34,5 +34,20 @@ module Afo
       cc = c.previous
       assert_nil cc
     end
+
+    def test_all_ids_asc
+      ids = Comic.all_ids_asc
+      assert_equal ids.length, 8
+      first = ids.shift
+      ids.each { |id| assert id > first }
+    end
+
+    def test_get_first
+      assert_equal @comics[0], Comic.get_first
+    end
+
+    def test_get_last
+      assert_equal @comics[7], Comic.get_last
+    end
   end
 end

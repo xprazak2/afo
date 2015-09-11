@@ -17,7 +17,6 @@ module Afo
   
   require 'settings'  
   require 'logging'
-
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
   # ::Sinatra::Base.use ::Afo::LoggingMiddleware
   
