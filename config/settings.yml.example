@@ -2,6 +2,9 @@
 ##app wide
 :app_title: "Astonishingly Friendly Owl"
 :app_subtitle: "No bluejays or mockingbirds will be tolerated!"
+# WARN, DEBUG, ERROR, FATAL, INFO, UNKNOWN
+:log_level: ERROR
+
 
 ## db setup
 :db_user: "postgres"

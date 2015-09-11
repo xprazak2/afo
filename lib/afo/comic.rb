@@ -21,5 +21,9 @@ module Afo
       i = ids.index(self.id) - 1
       (i < 0) ? nil : Comic.get(ids[i])
     end
+
+    def log_me
+      logger.info "logging"
+    end
   end
 end
