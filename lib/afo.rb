@@ -6,6 +6,7 @@ require 'sinatra/base'
 require 'sinatra-initializers'
 require 'data_mapper'
 require 'dm-timestamps'
+require 'tilt/erb'
 
 module Afo
   
@@ -17,10 +18,8 @@ module Afo
   require 'settings'  
   require 'logging'
 
-  # ::Sinatra::Base.set :logging, false
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
   # ::Sinatra::Base.use ::Afo::LoggingMiddleware
-  
   
   DataMapper::Resource.send :include, Logging     
   models = %w(user comic content)
@@ -41,12 +40,7 @@ module Afo
   end
 
   ::Sinatra::Base.configure do |s|
-    # s.enable :logging
-    # file = File.new("#{APP_ROOT}/config/#{s.settings.environment}.log", 'a+')
-    # file.sync = true
-    # s.use LoggingMiddleware
-    # s.use Rack::CommonLogger, Logging.logger
-    # s.before { env["rack.errors"] = Logging.logger }
+    s.before { env["rack.errors"] = Logging.logger }
     s.register Sinatra::Initializers
   end
 end
