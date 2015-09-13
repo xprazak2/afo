@@ -1,12 +1,14 @@
 APP_ROOT = "#{File.dirname(__FILE__)}/.."
 $:.unshift(File.dirname(__FILE__) + '/afo')
 $:.unshift(APP_ROOT + '/public')
+$:.unshift(APP_ROOT + '/config')
 
 require 'sinatra/base'
 require 'sinatra-initializers'
 require 'data_mapper'
 require 'dm-timestamps'
 require 'tilt/erb'
+require 'sass'
 
 module Afo
   
@@ -18,7 +20,6 @@ module Afo
   require 'settings'  
   require 'logging'
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
-  # ::Sinatra::Base.use ::Afo::LoggingMiddleware
   
   DataMapper::Resource.send :include, Logging     
   models = %w(user comic content)

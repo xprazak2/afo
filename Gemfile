@@ -5,13 +5,14 @@ gem 'sinatra'
 gem 'sinatra-initializers'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'sass'
+gem 'sprockets'
 
 group :development do
   gem 'shotgun'
   gem 'tux'
   gem 'pry'
   gem 'pry-byebug'
-  # gem 'rerun'
 end
 
 group :test, :development do
