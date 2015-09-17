@@ -1,1 +1,3 @@
-//= require_tree
+//= require vendors/normalize
+//= require vendors/skeleton
+//= require custom

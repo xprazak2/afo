@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= Afo::Settings[:app_title] + ' - ' + Afo::Settings[:app_subtitle] %></title>
-  <link rel="stylesheet" type="text/css" href="/assets/afo.css">
-  <script rel="javascript" type="text/js" src="/assets/afo.js"></script>
+  <meta charset="utf-8">
+  <meta name="author" content="<%= Afo::Settings[:app_author] || "" %>">
+  <meta name="description" content="<%= Afo::Settings[:app_description] || "" %>">
+  <title><%= Afo::Settings[:app_title] || "" + ' - ' + Afo::Settings[:app_subtitle] || "" %></title>
+  <%= stylesheet_tag 'afo' %>
+  <%= javascript_tag 'afo' %>
 </head>
 <body>
-  <%= yield %>
+  <div class="container">
+    <div class="row">
+      <h1><%= Afo::Settings[:app_title] || "" %></h1>
+      <h3><%= Afo::Settings[:app_subtitle] || "" %></h3>
+    </div>
+    <%= yield %>
+        
+  </div>
 </body>
 </html>

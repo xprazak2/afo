@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sass'
 gem 'sprockets'
+gem 'sprockets-helpers'
 
 group :development do
   gem 'shotgun'

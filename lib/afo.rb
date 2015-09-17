@@ -9,6 +9,7 @@ require 'data_mapper'
 require 'dm-timestamps'
 require 'tilt/erb'
 require 'sass'
+require 'sprockets-helpers'
 
 module Afo
   
