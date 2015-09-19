@@ -1,5 +1,16 @@
 APP_ROOT = "#{File.dirname(__FILE__)}/.."
-$:.unshift(File.dirname(__FILE__) + '/afo')
+AFO = File.dirname(__FILE__) + '/afo'
+
+#load the files in afo subdirectories
+Dir.entries(AFO).select do |entry|
+  File.directory? File.join(AFO, entry) and !(entry =='.' || entry == '..')
+end.map do |folder_name|
+ File.join AFO, folder_name
+end.each do |folder|
+  $:.unshift(folder)
+end
+
+$:.unshift(AFO)
 $:.unshift(APP_ROOT + '/public')
 $:.unshift(APP_ROOT + '/config')
 
@@ -12,17 +23,17 @@ require 'sass'
 require 'sprockets-helpers'
 
 module Afo
-  
+
   ::Sinatra::Base.set :run, false
   ::Sinatra::Base.set :root, APP_ROOT
   ::Sinatra::Base.set :views, APP_ROOT + '/views'
   ::Sinatra::Base.set :public_folder, APP_ROOT + '/public'
-  
-  require 'settings'  
+
+  require 'settings'
   require 'logging'
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
-  
-  DataMapper::Resource.send :include, Logging     
+
+  DataMapper::Resource.send :include, Logging
   models = %w(user comic content)
   models.each {|model| require model}
 
@@ -37,11 +48,11 @@ module Afo
   end
 
   ::Sinatra::Base.configure(:production) do
-  # 
+  #
   end
 
   ::Sinatra::Base.configure do |s|
-    s.before { env["rack.errors"] = Logging.logger }
+    # s.before { env["rack.errors"] = Logging.logger }
     s.register Sinatra::Initializers
   end
 end

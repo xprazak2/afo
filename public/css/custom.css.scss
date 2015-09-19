@@ -1,4 +1,26 @@
-body{
-  background-color: #191a1e;//#0a0c1e;//#0d1c31;
-  color: #ededed;//#fafafa;
+@font-face{
+  font-family: droid;
+  src: url(../fonts/DroidSans.ttf)
 }
+
+@font-face{
+  font-family: open-sans;
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face{
+  font-family: aller;
+  src: url(../fonts/Aller_Rg.ttf);
+}
+
+@font-face{
+  font-family: roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+body{
+  font-family: aller, roboto, droid, open-sans;
+  background-color: #191a1e;//#0a0c1e;//#0d1c31;
+  color: #fafafa;
+}
+

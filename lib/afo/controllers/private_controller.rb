@@ -1,7 +1,7 @@
 module Afo
   class PrivateContent < ::Sinatra::Base
 
-    get '/?' do 
+    get '/?' do
       erb :'private/index'
     end
 

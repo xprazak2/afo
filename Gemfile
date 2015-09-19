@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'sinatra'
+gem 'sinatra', ' ~> 1.4.6'
 gem 'sinatra-initializers'
-gem 'data_mapper'
+gem 'data_mapper', '~> 1.2.0'
 gem 'dm-postgres-adapter'
-gem 'sass'
-gem 'sprockets'
+gem 'sass', '~> 3.4.18'
+gem 'sprockets', '~> 3.3.4'
 gem 'sprockets-helpers'
+gem 'rabl', '~> 0.11.6'
 
 group :development do
   gem 'shotgun'

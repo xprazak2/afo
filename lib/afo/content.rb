@@ -5,6 +5,6 @@ module Afo
     property :id, Serial
     property :name, String, :required => true
     property :content, Text
-    
+
   end
 end

@@ -1,5 +1,5 @@
 module Afo
-  class Comic 
+  class Comic
     include ::DataMapper::Resource
 
     property :id, Serial

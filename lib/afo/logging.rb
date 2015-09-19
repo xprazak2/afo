@@ -41,4 +41,5 @@ module Afo
       @app.call(env)
     end
   end
+  #
 end

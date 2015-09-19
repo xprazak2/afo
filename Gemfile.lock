@@ -88,6 +88,8 @@ GEM
     pry-byebug (3.2.0)
       byebug (~> 5.0)
       pry (~> 0.10)
+    rabl (0.11.6)
+      activesupport (>= 2.3.14)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -131,7 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  data_mapper
+  data_mapper (~> 1.2.0)
   database_cleaner
   dm-postgres-adapter
   dm-sqlite-adapter
@@ -140,12 +142,13 @@ DEPENDENCIES
   minitest-around
   pry
   pry-byebug
+  rabl (~> 0.11.6)
   rack-test
   rake
-  sass
+  sass (~> 3.4.18)
   shotgun
-  sinatra
+  sinatra (~> 1.4.6)
   sinatra-initializers
-  sprockets
+  sprockets (~> 3.3.4)
   sprockets-helpers
   tux
