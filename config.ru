@@ -12,6 +12,9 @@ Dir["#{app_dir}/afo/controllers/*.rb"].each { |file| require file }
 #require asset middleware
 require File.join(app_dir, 'middleware', 'assets.rb')
 
+require 'rack/contrib'
+
+use Rack::PostBodyContentTypeParser
 use Middleware::Assets
 
 map "/api" do

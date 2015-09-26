@@ -23,7 +23,6 @@ require 'sass'
 require 'sprockets-helpers'
 require 'active_support/all'
 
-
 module Afo
 
   ::Sinatra::Base.set :run, false

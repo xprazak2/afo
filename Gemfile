@@ -9,6 +9,7 @@ gem 'sass', '~> 3.4.18'
 gem 'sprockets', '~> 3.3.4'
 gem 'sprockets-helpers'
 gem 'rabl', '~> 0.11.6'
+gem 'rack-contrib'
 
 group :development do
   gem 'shotgun'

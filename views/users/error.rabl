@@ -1,11 +1,7 @@
-#object false
-
 extends "users/show"
 
 if @user.errors.any?
-  node :errors do |errors|
-    errors.keys.each do |key|
-      node(key) { errors[key] }
-    end
+  node :errors do
+    @user.errors.keys.map { |k| { k.to_s => @user.errors[k] } }
   end
 end
