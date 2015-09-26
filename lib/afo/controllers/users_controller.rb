@@ -5,17 +5,24 @@ module Afo
 
     get "/" do
       @users = User.all
-      rabl :'users/index', :format => :json
+      render_index
     end
 
    get "/:id" do
-      find_user
-      rabl :'users/show', :format => :json
+      @user = find_resource
+      render_resource
     end
 
     put "/:id" do
-      find_user
-      rabl :'users/show', :format => :json
+      @user = find_resource
+      binding.pry
+      begin
+        @user.save
+        puts "ole"
+        render_resource
+      rescue
+        render_validation_errors
+      end
     end
 
     private

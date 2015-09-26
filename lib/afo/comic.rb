@@ -8,7 +8,7 @@ module Afo
     property :created_at, DateTime
     property :updated_at, DateTime
 
-    belongs_to :user
+    belongs_to :user#, :required => false
     alias uploaded_by user
 
     def next

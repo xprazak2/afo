@@ -8,7 +8,7 @@ module Afo
     end
 
     get "/:id" do
-      # @content = Content.get params[:id]
+      @content = Content.get params[:id]
       rabl :'contents/show', :format => :json
     end
 

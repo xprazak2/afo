@@ -1,7 +1,15 @@
-#require all Sinatra::Base descandants in our app
 app_dir = File.join(File.dirname(__FILE__), 'lib')
+
+#require main app file
 require File.join(app_dir, 'afo.rb')
+
+#require rendering
+require File.join(app_dir, 'afo', 'rendering.rb')
+
+#require all Sinatra::Base descandants in our app
 Dir["#{app_dir}/afo/controllers/*.rb"].each { |file| require file }
+
+#require asset middleware
 require File.join(app_dir, 'middleware', 'assets.rb')
 
 use Middleware::Assets

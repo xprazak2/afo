@@ -21,6 +21,8 @@ require 'dm-timestamps'
 require 'tilt/erb'
 require 'sass'
 require 'sprockets-helpers'
+require 'active_support/all'
+
 
 module Afo
 
@@ -34,7 +36,7 @@ module Afo
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
 
   DataMapper::Resource.send :include, Logging
-  models = %w(user comic content)
+  models = %w(user comic content error)
   models.each {|model| require model}
 
   DataMapper.setup(:default,
