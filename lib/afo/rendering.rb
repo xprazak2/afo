@@ -7,7 +7,7 @@ module Afo
           "could not find #{file_name.chop} with id #{params[:id]}",
            resource_class.to_s, 422)
       else
-        render_error("could not find , no id given", resource_class.to_s, 422)
+        render_error("could not find #{file_name.chop}, no id given")
       end
     end
 
@@ -26,8 +26,8 @@ module Afo
       halt(422, rabl(path, :format => :json))
     end
 
-    def render_error(message, resource, code = 404)
-      @error = Error.new(:message => message, :resource => resource)
+    def render_error(message, resource_name = resource_class.to_s , code = 422)
+      @error = Error.new(:message => message, :resource => resource_name)
       halt(code, rabl(:'common/error', :format => :json))
     end
 

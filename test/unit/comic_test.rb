@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Afo
   class ComicTest < MiniTest::Unit::TestCase
-    
+
     def setup
       @user = FactoryGirl.create(:user)
       @comics = []
@@ -40,14 +40,6 @@ module Afo
       assert_equal ids.length, 8
       first = ids.shift
       ids.each { |id| assert id > first }
-    end
-
-    def test_get_first
-      assert_equal @comics[0], Comic.get_first
-    end
-
-    def test_get_last
-      assert_equal @comics[7], Comic.get_last
     end
   end
 end

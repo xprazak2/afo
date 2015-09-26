@@ -3,22 +3,18 @@ require 'api'
 module Afo
   class ContentsController < Api
 
-    before do
-      @content = Content.get params[:id] if params[:id]
-    end
-
     get "/:id" do
-      @content = Content.get params[:id]
-      rabl :'contents/show', :format => :json
+      @content = find_resource
+      render_resource
     end
 
     put "/:id" do
+      @content = find_resource
       if @content.save
-        rabl :'contents/show', :format => :json
+        render_resource
       else
-        rabl :'common/error', :format => :json
+        render_validation_errrors
       end
     end
-
   end
 end
