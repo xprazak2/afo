@@ -5,8 +5,13 @@ FactoryGirl.define do
   end
 
   factory :comic, :class => Afo::Comic do
-    user
-    sequence(:title) { |n| "title-#{n}" }
+    user nil
+    sequence(:title) { |n| "title_#{n}" }
     sequence(:path) { |n| "/public/comic/#{n}" }
+  end
+
+  factory :content, :class => Afo::Content do
+    name "some_name"
+    content "some_content"
   end
 end

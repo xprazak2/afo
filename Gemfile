@@ -25,4 +25,5 @@ group :test, :development do
   gem "database_cleaner"
   gem "minitest-around"
   gem "dm-sqlite-adapter"
+  gem "mocha"
 end

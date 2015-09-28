@@ -6,7 +6,7 @@ module Afo
     attr_accessor :file
     property :id, Serial
     property :title, String, :required => true
-    property :path, FilePath
+    property :path, FilePath #make it required in the future?
     property :created_at, DateTime
     property :updated_at, DateTime
 
@@ -31,7 +31,7 @@ module Afo
           super
           save_file
           path = storage_path
-          update
+          save ##or use update?
         rescue => e
           logger.error "Failed to save file #{title}"
           logger.error e.message
@@ -44,7 +44,7 @@ module Afo
     def destroy
       Comic.transaction do |t|
         begin
-          File.delete(path)
+          delete_file
           super
         rescue => e
           logger.error "Error during removal of the file: #{path}."
@@ -69,8 +69,16 @@ module Afo
       end
     end
 
+    def delete_file
+      File.delete(path)
+    end
+
     def storage_path
       STORAGE << "/#{id}#{ext}"
+    end
+
+    def ext
+      raise "not yet implemented"
     end
 
   end

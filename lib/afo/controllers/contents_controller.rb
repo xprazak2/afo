@@ -10,7 +10,7 @@ module Afo
 
     put "/:id" do
       @content = find_resource
-      if @content.save
+      if @content.update params[:content]
         render_resource
       else
         render_validation_errrors
