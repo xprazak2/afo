@@ -1,1 +1,2 @@
-//= require_tree
+//= require vendors/angular
+//= require_tree .
