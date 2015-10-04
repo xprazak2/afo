@@ -9,5 +9,11 @@ module Afo
     end
 
     Rabl.register!
+
+    not_found do
+      content_type :json
+      halt 404, { error: 'URL not found' }.to_json
+    end
+
   end
 end

@@ -22,18 +22,18 @@ module Middleware
         config.prefix = "/assets"
         config.digest = false
         config.public_path = public_folder
-        # config.debug = true if development? do not turn on, causes stylesheet load to fail!!!
+        config.debug = true if development? #do not turn on, causes stylesheet load to fail!!!
       end
     end
 
-  get "/assets/afo.js" do
+  get "/assets/:file.js" do
     content_type("application/javascript")
-    settings.assets["afo.js"]
+    settings.assets["#{params[:file]}.js"]
   end
 
-  get "/assets/afo.css" do
+  get "/assets/:file.css" do
     content_type("text/css")
-    settings.assets["afo.css"]
+    settings.assets["#{params[:file]}.css"]
   end
 
   # %w{jpg png}.each do |format|

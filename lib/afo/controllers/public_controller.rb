@@ -1,6 +1,6 @@
 module Afo
   class PublicContent < ::Sinatra::Base
-    
+
     helpers do
       include Sprockets::Helpers
     end
