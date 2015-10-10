@@ -21,8 +21,9 @@ module Middleware
         config.environment = assets
         config.prefix = "/assets"
         config.digest = false
+        #config.expand = true # we cannot expand because sprockets add .self to asset path making it fail
         config.public_path = public_folder
-        config.debug = true if development? #do not turn on, causes stylesheet load to fail!!!
+        config.debug = true if development? #do not turn on, sprockets bug causes asset load failure
       end
     end
 
