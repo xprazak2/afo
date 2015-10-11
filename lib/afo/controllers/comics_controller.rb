@@ -9,7 +9,20 @@ module Afo
     end
 
     get "/:id" do
-      #all in one(???) vs. 2 requests for file and data
+      #send it as base64 encoded stream in JSON
+      json :message => "not yet implemented"
+    end
+
+    get "/last" do
+      json :message => "not yet implemented"
+    end
+
+    get "/first" do
+      json :message => "not yet implemented"
+    end
+
+    get "/random" do
+      json :message => "not yet implemented"
     end
 
     put "/:id" do

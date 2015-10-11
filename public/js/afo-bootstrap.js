@@ -5,5 +5,8 @@ angular.element(document).ready(function () {
 
 Modules = [
   'Afo',
+  'Afo.layout',
+  'Afo.comics',
+  'Afo.contents',
   'Afo.users',
 ];
