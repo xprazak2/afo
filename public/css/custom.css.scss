@@ -1,3 +1,5 @@
+/* font- realted
+-----------------*/
 @font-face{
   font-family: droid;
   src: url(../fonts/DroidSans.ttf)
@@ -24,3 +26,64 @@ body{
   color: #fafafa;
 }
 
+@media (min-width: 550px){
+  h3{
+    font-size: 2.8rem;
+  }
+}
+
+h1 {
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+h3{
+  font-size: 2.4rem;
+}
+
+/*nav
+------*/
+
+
+
+.navbar ul{
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+  @media screen and (min-width: 550px) {
+    li {
+          width: 150px;
+          border-bottom: none;
+          height: 30px;
+          line-height: 30px;
+          font-size: 2.2rem;
+          float: left;
+    }
+  }
+
+  li {
+    font-size: 2.2rem;
+    line-height: 40px;
+    height: 40px;
+
+    a {
+      text-decoration: none;
+      color: #fafafa;
+      display: block;
+      transition: .4s color;
+      // border-radius: 10px;
+      // border-left: 1px solid  #fafafa;
+    }
+
+    a:hover {
+      // background-color: #1EAEDB;
+      color: #f76600;
+    }
+  }
+}
+
+.selected{
+  color: #f76600;
+}

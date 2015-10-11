@@ -8,8 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'sass', '~> 3.4.18'
 gem 'sprockets', '~> 3.3.4'
 
-# gem 'sprockets-helpers'
-gemspec :path => '../sprockets-helpers'
+gem 'sprockets-helpers'
 gem 'rabl', '~> 0.11.6'
 gem 'rack-contrib'
 
