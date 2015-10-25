@@ -2,7 +2,7 @@ angular.module('Afo.comics').controller('ComicsHomeCtrl',
   ['$scope', 'Comic',
     function ($scope, Comic) {
 
-      var, success, error, load;
+      var success, error, load;
 
       success = function (response) {
         deferred.resolve(response);

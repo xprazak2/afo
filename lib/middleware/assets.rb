@@ -37,6 +37,14 @@ module Middleware
     settings.assets["#{params[:file]}.css"]
   end
 
+  get "/*/views/:file.html" do
+    angular_modules = %w(comics contents layout users vendors)
+    binding.pry
+    halt 404, 'No assets on this route' unless angular_modules.include? params['splat'].first
+    content_type("text/html")
+    settings.assets["#{params[:file]}.html"]
+  end
+
   # %w{jpg png}.each do |format|
   #   get "/assets/:image.#{format}" do |image|
   #     content_type("image/#{format}")
