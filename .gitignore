@@ -37,3 +37,4 @@ build/
 
 #custom
 config/settings.yml
+public/comics/*

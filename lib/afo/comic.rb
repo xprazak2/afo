@@ -3,7 +3,7 @@ module Afo
     include ::DataMapper::Resource
 
     STORAGE = File.join(::Sinatra::Base.settings.public_folder, 'comics')
-    attr_accessor :file
+    attr_accessor :file, :orig_path
     property :id, Serial
     property :title, String, :required => true
     property :path, FilePath #make it required in the future?
@@ -25,16 +25,17 @@ module Afo
     end
 
     def save
-      logger.debug "Saving file, please wait..."
+      logger.debug "Saving file: #{title}, please wait..."
       Comic.transaction do |t|
         begin
-          super
+          raise errors.values.join(', ') unless super
           save_file
-          path = storage_path
-          save ##or use update?
+          self.path = storage_path.to_s
+          raise errors.values.join(', ') unless super
         rescue => e
-          logger.error "Failed to save file #{title}"
+          logger.error "Failed to save file: #{title}"
           logger.error e.message
+          delete_file if self.path
           logger.debug e.backtrace.join("\n\t")
           t.rollback
         end
@@ -65,20 +66,20 @@ module Afo
 
     def save_file
       File.open(storage_path, "wb") do |f|
-        f.write file
+        f.write @file
       end
     end
 
     def delete_file
-      File.delete(path)
+      File.delete(@path) rescue logger.debug "Missing file for removal, would be deleted anyway"
     end
 
     def storage_path
-      STORAGE << "/#{id}#{ext}"
+      "#{STORAGE}/#{id}.#{ext}"
     end
 
     def ext
-      raise "not yet implemented"
+      orig_path.split('.').last
     end
 
   end
