@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/testtask'
 require 'yaml'
-require './lib/afo/comic'
+require './lib/afo'
 require 'pry'
 
 
