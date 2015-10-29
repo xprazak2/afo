@@ -22,7 +22,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
     .state('layout.comics.home', {
       url: '/',
       controller: 'ComicsHomeCtrl',
-      templateUrl: 'comics/views/home.html'
+      templateUrl: 'comics/views/comics-home.html'
     })
   }
 ]);
