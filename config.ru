@@ -17,9 +17,9 @@ require 'rack/contrib'
 use Rack::PostBodyContentTypeParser
 use Middleware::Assets
 
-map "/api" do
-  run Afo::Api
-end
+#map "/api" do
+#  run Afo::Api
+#end
 
 map "/api/contents" do
   run Afo::ContentsController

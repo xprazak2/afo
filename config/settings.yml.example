@@ -15,9 +15,9 @@
 :db_path: "localhost/postgres"
 
 ## privileged access
-:admins: 
+:admins:
   - :name: "admin1"
-    :password: "changeme" 
+    :password: "changeme"
 
-  - :name: "admin2" 
+  - :name: "admin2"
     :password: "changeme"

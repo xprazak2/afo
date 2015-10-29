@@ -42,8 +42,7 @@ module Middleware
     halt 404, 'No assets on this route' unless angular_modules.include? params['splat'].first
     content_type("text/html")
     path = [settings.assets.paths.first, params[:splat], "views", "#{params[:file]}.html"].join("/")
-    binding.pry
-    settings.assets["#{params[:file]}.html"]
+    send_file File.join(settings.assets.paths.first, params[:splat], "views", "#{params[:file]}.html")
   end
 
   # %w{jpg png}.each do |format|
