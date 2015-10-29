@@ -1,7 +1,6 @@
 require 'rake'
 require 'rake/testtask'
 require 'yaml'
-require './lib/afo'
 require 'pry'
 
 
@@ -23,13 +22,15 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
-task :load_test_data do
+task :load_sample_data do
+  require './lib/afo'
   comics = YAML.load(File.read("test/data/data.yml"))
   comics[:comics].each { |hash| hash[:file] = File.read hash[:orig_path] }
                  .map { |c| Afo::Comic.new c }.map(&:save)
 end
 
-task :destroy_test_data do
+task :destroy_sample_data do
+  require './lib/afo'
   comics = YAML.load(File.read("test/data/data.yml"))
   records = comics[:comics].map { |c| Afo::Comic.first :title => c[:title] }.compact
   records.map(&:destroy)
