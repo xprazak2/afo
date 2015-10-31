@@ -19,7 +19,7 @@ Rake::TestTask.new(:test) do |t|
   t.libs << '.'
   t.libs << 'lib'
   t.libs << 'test'
-  t.test_files = FileList['test/unit/*_test.rb']
+  t.test_files = FileList['test/unit/*_test.rb', 'test/functional/*_test.rb']
   t.verbose = true
 end
 
