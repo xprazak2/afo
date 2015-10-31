@@ -58,7 +58,7 @@ module Afo
 
     def self.get(id)
       comic = super id
-      comic.load_file
+      comic.load_file if comic
       comic
     end
 
