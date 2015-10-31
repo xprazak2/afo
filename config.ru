@@ -29,6 +29,10 @@ map "/api/users" do
   run Afo::UsersController
 end
 
+map "/api/comics" do
+  run Afo::ComicsController
+end
+
 map "/" do
   run Afo::PublicContent
 end

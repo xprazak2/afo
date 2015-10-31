@@ -7,7 +7,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
   function ($locationProvider, $stateProvider) {
     $locationProvider.html5Mode({
       enabled: true,
-      //or bump angular version instead
+      //or get higher angular version instead
       requireBase: false
     });
 

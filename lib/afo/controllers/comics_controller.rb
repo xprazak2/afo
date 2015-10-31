@@ -4,25 +4,28 @@ module Afo
   class ComicsController < Api
 
     get "/" do
+      #not handling when there are comic files missing
       @comics = Comic.all
       render_index
     end
 
-    get "/:id" do
-      #send it as base64 encoded stream in JSON
-      json :message => "not yet implemented"
-    end
-
-    get "/last" do
-      json :message => "not yet implemented"
+     get "/last" do
+      @comic = Comic.last
+      handle_response
     end
 
     get "/first" do
-      json :message => "not yet implemented"
+      @comic = Comic.first
+      handle_response
     end
 
     get "/random" do
       json :message => "not yet implemented"
+    end
+
+    get "/:id" do
+      @comic = find_resource
+      handle_response
     end
 
     put "/:id" do
@@ -56,6 +59,16 @@ module Afo
         render_resource
       rescue => e
         render_error e.message
+      end
+    end
+
+    private
+
+    def handle_response
+      if @comic.file
+        render_resource
+      else
+        render_error "Could not find comic file on the server."
       end
     end
 

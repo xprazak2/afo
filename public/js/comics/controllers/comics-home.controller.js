@@ -2,7 +2,7 @@ angular.module('Afo.comics').controller('ComicsHomeCtrl',
   ['$scope', 'Comic',
     function ($scope, Comic) {
 
-      var success, error, load;
+      var success, error, loadLast;
 
       success = function (response) {
         deferred.resolve(response);
@@ -14,7 +14,7 @@ angular.module('Afo.comics').controller('ComicsHomeCtrl',
         console.log("error " + response);
       };
 
-      load = function () {
+      loadLast = function () {
         var result,
             deferred = $q.defer();
 

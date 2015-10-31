@@ -13,6 +13,9 @@ module Afo
 
   require 'json'
   #data model related
+  require 'logging'
+  require 'settings'
+  DataMapper::Resource.send :include, Logging
   require 'user'
   require 'comic'
   require 'content'

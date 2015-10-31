@@ -8,6 +8,7 @@ FactoryGirl.define do
     user nil
     sequence(:title) { |n| "title_#{n}" }
     sequence(:path) { |n| "/public/comic/#{n}" }
+    file nil
   end
 
   factory :content, :class => Afo::Content do

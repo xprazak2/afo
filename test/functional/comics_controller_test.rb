@@ -9,9 +9,10 @@ module Afo
     end
 
     def setup
-      # @comic.stubs(:ext).returns(".png")
-      # @comic.stubs(:save_file)
       @comic = FactoryGirl.create(:comic)
+      @comic_2 = FactoryGirl.create(:comic, :title => "second")
+      Afo::Comic.any_instance.stubs(:load_file).returns("loaded")
+      Afo::Comic.any_instance.stubs(:file).returns("loaded")
     end
 
     def test_index
@@ -19,6 +20,27 @@ module Afo
       assert last_response.ok?
       data = JSON.parse(last_response.body)
       assert_equal @comic.title, data.first["title"]
+    end
+
+    def test_get
+      get "/#{@comic.id}"
+      assert last_response.ok?
+      data = JSON.parse(last_response.body)
+      assert_equal @comic.title, data["title"]
+    end
+
+    def test_first
+      get '/first'
+      assert last_response.ok?
+      data = JSON.parse(last_response.body)
+      assert_equal @comic.title, data["title"]
+    end
+
+    def test_last
+      get '/last'
+      assert last_response.ok?
+      data = JSON.parse(last_response.body)
+      assert_equal @comic_2.title, data["title"]
     end
 
     # def test_delete

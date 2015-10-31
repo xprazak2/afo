@@ -56,10 +56,32 @@ module Afo
       end
     end
 
-    protected
+    def self.get(id)
+      comic = super id
+      comic.load_file
+      comic
+    end
+
+    def self.load_all
+      comics = Comic.all
+      Comic.load_files comics
+    end
 
     def self.all_ids_asc
       Comic.all(:fields => [:id], :order => [:id.asc]).map(&:id)
+    end
+
+    def load_file
+      begin
+        @file = Base64.encode64(File.read(@path))
+      rescue => e
+        logger.error e.message
+        logger.debug e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.load_files(comics)
+      comics.each { |c| c.load_file }
     end
 
     private

@@ -6,7 +6,7 @@ module Afo
   module Logging
     @@logger = nil
     @@file = nil
-    
+
     def logger
       @@logger ||= ::Afo::Logging.logger
     end

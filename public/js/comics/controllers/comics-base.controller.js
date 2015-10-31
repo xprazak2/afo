@@ -1,6 +1,6 @@
 angular.module('Afo.comics').controller('ComicsBaseCtrl',
-  ['$scope',
-    function ($scope) {
+  ['$scope', 'Comic',
+    function ($scope, Comic) {
 
     }
 ]);
