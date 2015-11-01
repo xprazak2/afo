@@ -1,5 +1,8 @@
 /* font- realted
 -----------------*/
+
+/* not really using these fonts, considered as alternative*/
+/*
 @font-face{
   font-family: droid;
   src: url(../fonts/DroidSans.ttf)
@@ -11,18 +14,20 @@
 }
 
 @font-face{
+  font-family: roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+*/
+$h3_plus_nav_font_size: 2.4rem;
+
+@font-face{
   font-family: aller;
   src: url(../fonts/Aller_Rg.ttf);
 }
 
-@font-face{
-  font-family: roboto;
-  src: url(../fonts/Roboto-Regular.ttf);
-}
-
 body{
   font-family: aller, roboto, droid, open-sans;
-  background-color: #191a1e;//#0a0c1e;//#0d1c31;
+  background-color: #191a1e;
   color: #fafafa;
 }
 
@@ -38,19 +43,17 @@ h1 {
 }
 
 h3{
-  font-size: 2.4rem;
+  font-size: $h3_plus_nav_font_size;
 }
 
 /*nav
 ------*/
-
-
-
 .navbar ul{
   list-style: none;
-  text-align: center;
+  text-align: left;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 
   @media screen and (min-width: 550px) {
     li {
@@ -58,7 +61,7 @@ h3{
           border-bottom: none;
           height: 30px;
           line-height: 30px;
-          font-size: 2.2rem;
+          font-size: $h3_plus_nav_font_size;
           float: left;
     }
   }
@@ -87,3 +90,4 @@ h3{
 .selected{
   color: #f76600;
 }
+/* nav end */

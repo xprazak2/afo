@@ -1,5 +1,5 @@
 //http://kirkbushell.me/angular-js-using-ng-resource-in-a-more-restful-manner/
-angular.module('Afo').factory('AfoResource', ['$resoure',
+angular.module('Afo').factory('AfoResource', ['$resource',
 
   function ($resource) {
 

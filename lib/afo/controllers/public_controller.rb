@@ -5,9 +5,14 @@ module Afo
       include Sprockets::Helpers
     end
 
-    get '/' do
-      erb :'public/index'
+    def self.pages
+      ['/', '/about']
     end
 
+    pages.each do |page|
+      get page do
+        erb :'public/index'
+      end
+    end
   end
 end

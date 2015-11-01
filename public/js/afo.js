@@ -12,7 +12,7 @@
 //=require_tree "./comics"
 
 //=require "contents/contents.module.js"
-//require_tree "./contents"
+//=require_tree "./contents"
 
 //=require "users/users.module.js"
 //=require_tree "./users"

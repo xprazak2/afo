@@ -24,5 +24,16 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
       controller: 'ComicsHomeCtrl',
       templateUrl: 'comics/views/comics-home.html'
     })
+
+    .state('layout.about', {
+      url: '/about',
+      controller: 'AboutCtrl',
+      templateUrl: 'contents/views/about.html'
+    })
+    .state('layout.disclaimer', {
+      url: '/disclaimer',
+      controller: 'DisclaimerCtrl',
+      templateUrl: 'contents/views/disclaimer.html'
+    })
   }
 ]);
