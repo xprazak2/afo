@@ -2,6 +2,8 @@ angular.module('Afo.comics').controller('ComicsBaseCtrl',
   ['$scope', 'Comic',
     function ($scope, Comic) {
 
+      $scope.comic = null;
+
       $scope.getLast = function () {
         var result, success, error,
             deferred = $q.defer();
@@ -19,6 +21,8 @@ angular.module('Afo.comics').controller('ComicsBaseCtrl',
         Comic.last({}, success, error)
         return deferred.promise;
       };
+
+      console.log('base ctrl');
 
     }
 ]);
