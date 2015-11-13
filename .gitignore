@@ -38,3 +38,5 @@ build/
 #custom
 config/settings.yml
 public/comics/*
+.tmp/
+node_modules/

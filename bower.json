@@ -1,0 +1,7 @@
+{
+  "name": "Afo",
+  "version": "0.0.1",
+  "dependencies": {
+    "spinkit": "~1.2.2"
+  }
+}
