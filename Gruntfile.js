@@ -7,7 +7,8 @@ module.exports = function(grunt) {
       install: {
         options: {
           targetDir: "public",
-          verbose: true
+          verbose: true,
+          cleanBowerDir: true
         }
       }
     }

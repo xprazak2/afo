@@ -40,3 +40,5 @@ config/settings.yml
 public/comics/*
 .tmp/
 node_modules/
+public/js/vendors/*
+public/css/vendors/*

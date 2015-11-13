@@ -2,6 +2,28 @@
   "name": "Afo",
   "version": "0.0.1",
   "dependencies": {
-    "spinkit": "~1.2.2"
+    "spinkit": "~1.2.2",
+    "skeleton": "~2.0.4",
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.7"
+  },
+  "exportsOverride": {
+    "spinkit": {
+      "css/vendors": "./css/spinkit.css"
+    },
+    "skeleton": {
+      "css/vendors": "./css/*.css"
+    },
+
+    "angular": {
+      "js/vendors": "./angular.js"
+    },
+    "angular-ui-router": {
+      "js/vendors": "./release/angular-ui-router.js"
+    },
+    "angular-resource": {
+      "js/vendors": "./angular-resource.js"
+    }
   }
 }

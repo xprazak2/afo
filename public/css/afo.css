@@ -1,3 +1,4 @@
-//= require vendors/normalize
-//= require vendors/skeleton
+//= require vendors/skeleton/normalize
+//= require vendors/skeleton/skeleton
+//= require vendors/spinkit/spinkit
 //= require custom
