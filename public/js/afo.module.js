@@ -18,7 +18,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
     .state('layout.comics', {
       abstract: true,
       controller: 'ComicsBaseCtrl',
-      templateUrl: 'comics/views/comics-base.html'
+      template: '<div ui-view></div>'
     })
     .state('layout.comics.home', {
       url: '/',
@@ -38,3 +38,4 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
     })
   }
 ]);
+

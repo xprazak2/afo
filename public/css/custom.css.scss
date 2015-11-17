@@ -87,7 +87,15 @@ h3{
   }
 }
 
-.selected{
+.selected {
   color: #f76600;
 }
 /* nav end */
+
+/*spinner*/
+.app-spinner{
+  background-color: #fafafa;
+  width: 80px;
+  height: 80px;
+  margin: 80px auto;
+}
