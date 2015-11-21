@@ -13,6 +13,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
 
     $stateProvider.state('layout', {
       abstract: true,
+      controller: 'LayoutCtrl',
       templateUrl: 'layout/views/layout.html'
     })
     .state('layout.comics', {
@@ -23,6 +24,11 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider',
     .state('layout.comics.home', {
       url: '/',
       controller: 'ComicsHomeCtrl',
+      templateUrl: 'comics/views/comics-home.html'
+    })
+    .state('layout.comics.show', {
+      url: '/:comicId',
+      controller: 'ComicsShowController',
       templateUrl: 'comics/views/comics-home.html'
     })
 

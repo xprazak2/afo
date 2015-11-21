@@ -38,7 +38,7 @@ body{
 }
 
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   margin-top: 2.5rem;
 }
 
@@ -46,19 +46,21 @@ h3{
   font-size: $h3_plus_nav_font_size;
 }
 
-/*nav
+/*main nav
 ------*/
 .navbar ul{
   list-style: none;
   text-align: left;
   padding: 0;
   margin: 0;
+  margin-bottom: 2rem;
   overflow: hidden;
 
   @media screen and (min-width: 550px) {
     li {
           width: 150px;
           border-bottom: none;
+          margin-bottom: 0;
           height: 30px;
           line-height: 30px;
           font-size: $h3_plus_nav_font_size;
@@ -90,12 +92,32 @@ h3{
 .selected {
   color: #f76600;
 }
-/* nav end */
+/* main nav end */
 
-/*spinner*/
+
+.navbar-comic ul {
+  display: table;
+  margin: 0 auto;
+
+  @media screen and (min-width: 550px) {
+    li {
+          width: auto;
+          margin: 0 10px;
+    }
+  }
+}
+
+.comic-container {
+  display: inline-block;
+}
+
 .app-spinner{
   background-color: #fafafa;
   width: 80px;
   height: 80px;
   margin: 80px auto;
+}
+
+h3.comic-title{
+  margin-bottom: 1rem;
 }

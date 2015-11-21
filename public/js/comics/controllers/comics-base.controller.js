@@ -1,28 +1,35 @@
 angular.module('Afo.comics').controller('ComicsBaseCtrl',
-  ['$scope', 'Comic',
-    function ($scope, Comic) {
+  ['$scope', '$q', 'Comic', 'comicCount',
+    function ($scope, $q, Comic, comicCount) {
 
       $scope.comic = null;
 
-      $scope.getLast = function () {
+      var loadLast = function () {
         var result, success, error,
             deferred = $q.defer();
 
         success = function (response) {
           deferred.resolve(response);
-          console.log("success " + reponse);
+          console.log(response);
         };
 
         error = function (response) {
           deferred.reject(response);
-          console.log("error " + response);
+          console.log(response);
         };
 
+        $scope.loading = true;
         Comic.last({}, success, error)
         return deferred.promise;
       };
 
-      console.log('base ctrl');
+      $scope.getLast = function () {
+        loadLast().then(function (comic) {
+          $scope.comic = comic;
+          $scope.loading = false;
+          console.log('get last');
+        });
+      };
 
     }
 ]);

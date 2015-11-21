@@ -1,1 +1,23 @@
-<p>home view</p>
+<div ng-show="loading" class="sk-spinner sk-rotating-plane app-spinner"></div>
+
+<div ng-hide="loading" class="comic-container">
+  <div ng-show="comic.file">
+    <h3 class="comic-title">{{ comic.title }}</h3>
+    <img ng-src="data:image/png;base64,{{ comic.file }}">
+  </div>
+
+  <div ng-show="!comic.file">
+    <p>{{ comic.error }}</p>
+  </div>
+
+  <div class="navbar navbar-comic">
+    <ul>
+      <li><a ui-sref="layout.comics.home">&laquo;</a></li>
+      <li><a ui-sref="layout.about">&lsaquo;</a></li>
+      <li><a ui-sref="layout.disclaimer">random</a></li>
+      <li><a ui-sref="layout.disclaimer">&rsaquo;</a></li>
+      <li><a ui-sref="layout.comics.home">&raquo;</a></li>
+    </ul>
+  </div>
+
+</div>

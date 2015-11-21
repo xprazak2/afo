@@ -2,7 +2,9 @@ angular.module('Afo.comics').controller('ComicsHomeCtrl',
   ['$scope', 'Comic',
     function ($scope, Comic) {
 
-      // $scope.getLast();
-      console.log('home ctrl')
+      $scope.getLast();
+      console.log('home ctrl');
+      console.log($scope.comic);
+      console.log('home log');
     }
 ]);
