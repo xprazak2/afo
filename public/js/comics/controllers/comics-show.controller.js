@@ -4,13 +4,10 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
 
       $scope.comic = $scope.comic || null;
 
-      var loadComic, getComic, random;
+      var loadComic, getComic, random, neighbour, chooseRandom, findNeighbours,
+          markNavigation;
 
-      random = function () {
-        return Math.floor(Math.random() * Constants.comicCount);
-      };
-
-      var neighbour = function (offset) {
+      neighbour = function (offset) {
         if($scope.comic) {
           var index = $scope.ids.indexOf($scope.comic.id + offset)
           if(index == -1 ) {
@@ -21,11 +18,28 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
         } else {
           return null;
         }
-      }
+      };
 
-      $scope.nextId = neighbour(1);
-      $scope.previousId = neighbour(-1);
-      $scope.randomId = Constants.ids[random()];
+      findNeighbours = function () {
+        $scope.nextId = neighbour(1);
+        $scope.previousId = neighbour(-1);
+      };
+
+      random = function () {
+        return Math.floor(Math.random() * Constants.comicCount);
+      };
+
+      chooseRandom = function () {
+        do {
+          $scope.randomId = Constants.ids[random()];
+        }
+        while($scope.randomId == $scope.comic.id);
+      };
+
+      markNavigation = function () {
+        $scope.firstComic = $scope.firstId == $scope.comic.id;
+        $scope.lastComic = $scope.lastId == $scope.comic.id;
+      };
 
       loadComic = function (comicId) {
         $scope.loading = true;
@@ -47,6 +61,13 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
       getComic = function (comicId) {
         loadComic(comicId).then(function (comic) {
           $scope.comic = comic;
+          if(comic.id) {
+            chooseRandom();
+            findNeighbours();
+            markNavigation();
+          }
+          console.log($scope.nextId);
+          console.log($scope.previousId);
           $scope.loading = false;
         });
       }

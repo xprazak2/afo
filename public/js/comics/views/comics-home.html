@@ -4,19 +4,27 @@
   <div ng-show="comic.file">
     <h3 class="comic-title">{{ comic.title }}</h3>
     <img ng-src="data:image/png;base64,{{ comic.file }}">
+
+    <div class="navbar navbar-comic">
+      <ul>
+        <li><a ui-sref="layout.comics.show({comicId: firstId})"
+               ng-class="{disabled: firstComic }">&laquo;</a></li>
+
+        <li><a ui-sref="layout.comics.show({comicId: previousId})"
+               ng-class="{disabled: firstComic }">&lsaquo;</a></li>
+
+        <li><a ui-sref="layout.comics.show({comicId: randomId})">random</a></li>
+
+        <li><a ui-sref="layout.comics.show({comicId: nextId})"
+               ng-class="{disabled: lastComic }">&rsaquo;</a></li>
+
+        <li><a ui-sref="layout.comics.show({comicId: lastId})"
+               ng-class="{disabled: lastComic }">&raquo;</a></li>
+      </ul>
+    </div>
   </div>
 
   <div ng-show="!comic.file">
     <p>{{ comic.error }}</p>
-  </div>
-
-  <div class="navbar navbar-comic">
-    <ul>
-      <li><a ui-sref="layout.comics.show({comicId: firstId})">&laquo;</a></li>
-      <!-- <li><a ui-sref="layout.about">&lsaquo;</a></li> -->
-      <li><a ui-sref="layout.comics.show({comicId: randomId})">random</a></li>
-      <!-- <li><a ui-sref="layout.disclaimer">&rsaquo;</a></li> -->
-      <li><a ui-sref="layout.comics.show({comicId: lastId})">&raquo;</a></li>
-    </ul>
   </div>
 </div>

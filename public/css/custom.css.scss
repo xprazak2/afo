@@ -86,6 +86,12 @@ h3{
       // background-color: #1EAEDB;
       color: #f76600;
     }
+
+    a.disabled {
+      pointer-events: none;
+      cursor: default;
+      color: #5f5f5f;
+    }
   }
 }
 
@@ -121,3 +127,5 @@ h3{
 h3.comic-title{
   margin-bottom: 1rem;
 }
+
+
