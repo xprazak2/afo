@@ -13,14 +13,6 @@ module Afo
     belongs_to :user, :required => false
     alias uploaded_by user
 
-    %w(first last).each do |name|
-       singleton_class.send(:define_method, name) do
-        comic = super()
-        comic.load_file
-        comic
-      end
-    end
-
     def next
       ids = self.class.all_ids_asc
       Comic.get ids[ids.index(self.id) + 1]

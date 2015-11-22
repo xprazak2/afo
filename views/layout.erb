@@ -8,7 +8,15 @@
   <!-- <link rel="stylesheet" type="text/css" href="/assets/afo.css"> -->
   <!-- <script type="text/javascript" src="/assets/afo.js"></script> -->
   <%= stylesheet_tag 'afo' %>
-  <%= javascript_tag 'afo' %>
+  <%= javascript_tag 'afo-initialize' %>
+  <script>
+   <% ids = Afo::Comic.all.map(&:id) %>
+    angular.module('Afo').constant('Constants', { comicCount: <%= ids.count %>,
+                                               firstId: <%= ids[0] %>,
+                                               lastId: <%= ids[-1] %>,
+                                               ids: <%= ids %> });
+  </script>
+  <%= javascript_tag 'afo-components' %>
 </head>
 <body>
   <div class="container">

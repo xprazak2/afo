@@ -1,9 +1,4 @@
-//=require "vendors/angular/angular.js"
-//=require "vendors/angular-resource/angular-resource.js"
-//=require "vendors/angular-ui-router/angular-ui-router.js"
-
-//=require "afo.module.js"
-//=require "afo-constants.js.erb"
+//=require "afo-routes.js"
 //=require "afo-resource.factory.js"
 
 //=require "layout/layout.module.js"

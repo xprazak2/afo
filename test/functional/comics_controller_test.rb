@@ -29,20 +29,6 @@ module Afo
       assert_equal @comic.title, data["title"]
     end
 
-    def test_first
-      get '/first'
-      assert last_response.ok?
-      data = JSON.parse(last_response.body)
-      assert_equal @comic.title, data["title"]
-    end
-
-    def test_last
-      get '/last'
-      assert last_response.ok?
-      data = JSON.parse(last_response.body)
-      assert_equal @comic_2.title, data["title"]
-    end
-
     # def test_delete
     #   @comic.expects(:delete_file)
     #   delete "/#{@comic.id}", {:id => @comic.id}

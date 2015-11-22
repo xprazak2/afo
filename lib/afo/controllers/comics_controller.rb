@@ -9,20 +9,6 @@ module Afo
       render_index
     end
 
-     get "/last" do
-      @comic = Comic.last
-      handle_response
-    end
-
-    get "/first" do
-      @comic = Comic.first
-      handle_response
-    end
-
-    get "/random" do
-      json :message => "not yet implemented"
-    end
-
     get "/:id" do
       @comic = find_resource
       handle_response

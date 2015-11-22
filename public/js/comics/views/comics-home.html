@@ -12,12 +12,11 @@
 
   <div class="navbar navbar-comic">
     <ul>
-      <li><a ui-sref="layout.comics.home">&laquo;</a></li>
-      <li><a ui-sref="layout.about">&lsaquo;</a></li>
-      <li><a ui-sref="layout.disclaimer">random</a></li>
-      <li><a ui-sref="layout.disclaimer">&rsaquo;</a></li>
-      <li><a ui-sref="layout.comics.home">&raquo;</a></li>
+      <li><a ui-sref="layout.comics.show({comicId: firstId})">&laquo;</a></li>
+      <!-- <li><a ui-sref="layout.about">&lsaquo;</a></li> -->
+      <li><a ui-sref="layout.comics.show({comicId: randomId})">random</a></li>
+      <!-- <li><a ui-sref="layout.disclaimer">&rsaquo;</a></li> -->
+      <li><a ui-sref="layout.comics.show({comicId: lastId})">&raquo;</a></li>
     </ul>
   </div>
-
 </div>
