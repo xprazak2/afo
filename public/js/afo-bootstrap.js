@@ -8,5 +8,6 @@ Modules = [
   'Afo.layout',
   'Afo.comics',
   'Afo.contents',
+  'Afo.directives',
   'Afo.users',
 ];

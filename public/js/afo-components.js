@@ -1,6 +1,9 @@
 //=require "afo-routes.js"
 //=require "afo-resource.factory.js"
 
+//=require "directives/directives.module.js"
+//=require_tree "./directives"
+
 //=require "layout/layout.module.js"
 //=require_tree "./layout"
 
