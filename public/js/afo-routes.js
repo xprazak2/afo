@@ -12,12 +12,12 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     $stateProvider.state('layout', {
       abstract: true,
       controller: 'LayoutCtrl',
-      templateUrl: 'layout/views/layout.html'
+      templateUrl: '/layout/views/layout.html'
     })
     .state('layout.contents', {
       url: '/{contentId:' + contentPages + '}',
       controller: 'ContentsCtrl',
-      templateUrl: 'contents/views/content.html'
+      templateUrl: '/contents/views/content.html'
     })
     .state('layout.comics', {
       abstract: true,
@@ -27,13 +27,17 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     .state('layout.comics.list', {
       url: '/comics',
       controller: 'ComicsListCtrl',
-      templateUrl: 'comics/views/comics-list.html'
+      templateUrl: '/comics/views/comics-list.html'
+    })
+    .state('layout.comics.new', {
+      url: '/comics/new',
+      controller: 'ComicsNewCtrl',
+      templateUrl: '/comics/views/comics-new.html'
     })
     .state('layout.comics.show', {
       url: '/:comicId',
       controller: 'ComicsShowCtrl',
-      templateUrl: 'comics/views/comics-home.html'
+      templateUrl: '/comics/views/comics-home.html'
     })
-    
   }
 ]);
