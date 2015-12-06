@@ -12,15 +12,10 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       controller: 'LayoutCtrl',
       templateUrl: 'layout/views/layout.html'
     })
-    .state('layout.about', {
+    .state('layout.contents', {
       url: '/{contentId:[a-z]+}',
-      controller: 'AboutCtrl',
-      templateUrl: 'contents/views/about.html'
-    })
-    .state('layout.disclaimer', {
-      url: '/disclaimer',
-      controller: 'DisclaimerCtrl',
-      templateUrl: 'contents/views/disclaimer.html'
+      controller: 'ContentsCtrl',
+      templateUrl: 'contents/views/content.html'
     })
     .state('layout.comics', {
       abstract: true,

@@ -1,11 +1,10 @@
-angular.module('Afo.contents').controller('AboutCtrl',
+angular.module('Afo.contents').controller('ContentsCtrl',
   ['$scope', '$state', '$stateParams','$q', 'Content',
     function ($scope, $state, $stateParams, $q, Content) {
 
       $scope.content = $scope.content || null;
 
-      var loadContent, contentName;
-      // contentName = $state.current.url.match(/\/(\w+)/).pop();
+      var loadContent, getContent;
 
       loadContent = function (contentId) {
         $scope.loading = true;
