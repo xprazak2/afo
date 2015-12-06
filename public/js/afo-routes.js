@@ -7,13 +7,15 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     });
     $urlRouterProvider.when("/", "/" + Constants.lastId)
 
+    var contentPages = ['about', 'disclaimer'].join('|');
+
     $stateProvider.state('layout', {
       abstract: true,
       controller: 'LayoutCtrl',
       templateUrl: 'layout/views/layout.html'
     })
     .state('layout.contents', {
-      url: '/{contentId:[a-z]+}',
+      url: '/{contentId:' + contentPages + '}',
       controller: 'ContentsCtrl',
       templateUrl: 'contents/views/content.html'
     })
@@ -22,10 +24,16 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       controller: 'ComicsBaseCtrl',
       template: '<div ui-view></div>'
     })
+    .state('layout.comics.list', {
+      url: '/comics',
+      controller: 'ComicsListCtrl',
+      templateUrl: 'comics/views/comics-list.html'
+    })
     .state('layout.comics.show', {
       url: '/:comicId',
       controller: 'ComicsShowCtrl',
       templateUrl: 'comics/views/comics-home.html'
     })
+    
   }
 ]);
