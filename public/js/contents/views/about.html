@@ -1,1 +1,7 @@
-<p class="row">This is about page</p>
+<div ng-show="loading" class="sk-spinner sk-spinner-pulse app-spinner"></div>
+<div ng-hide="loading">
+  <!-- <p class="row">This is about page</p> -->
+  <p ng-show="!content">No content here, sorry</p>
+  <p ng-show="content">{{ content.content }}</p>
+</div>
+

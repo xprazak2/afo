@@ -66,8 +66,6 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
             findNeighbours();
             markNavigation();
           }
-          console.log($scope.nextId);
-          console.log($scope.previousId);
           $scope.loading = false;
         });
       }

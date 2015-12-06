@@ -22,7 +22,7 @@ module Afo
         @comic.save
         render_resource
       rescue => e
-        render_error
+        render_error e.message
       end
     end
 

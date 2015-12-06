@@ -13,7 +13,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       templateUrl: 'layout/views/layout.html'
     })
     .state('layout.about', {
-      url: '/about',
+      url: '/{contentId:[a-z]+}',
       controller: 'AboutCtrl',
       templateUrl: 'contents/views/about.html'
     })
