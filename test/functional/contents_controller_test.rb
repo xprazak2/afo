@@ -34,6 +34,5 @@ module Afo
       assert_equal params[:content][:name], data["name"]
     end
 
-
   end
 end

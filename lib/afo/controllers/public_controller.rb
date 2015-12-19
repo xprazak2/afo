@@ -6,7 +6,7 @@ module Afo
     end
 
     def self.pages
-      ['/', '/about', '/disclaimer', /\d+/]
+      ['/', '/about', '/disclaimer', /\d+/, "/comics/new", "/comics/list"]
     end
 
     pages.each do |page|

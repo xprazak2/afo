@@ -4,13 +4,23 @@
   <div class="row">
     <div class="six columns">
       <label for="comicTitle">Title</label>
-      <input class="u-full-width" type="text">
+      <input class="u-full-width" type="text" ng-model="comic.title">
     </div>
   </div>
+
   <div class="row">
     <div class="six columns">
-      <label for="comicFile">File</label>
-      <input class="u-full-width" type="file">
+      <label for="comicFile">File: {{ file.name }}</label>
+      <button type="button" class="file-input">
+        <input type="file" fileread="file">
+        <span>Choose file</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+      <button type="button" class="form-control u-pull-right" ng-click="saveComic()">Submit</button>
     </div>
   </div>
 </form>
