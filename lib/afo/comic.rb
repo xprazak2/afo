@@ -3,7 +3,7 @@ module Afo
     include ::DataMapper::Resource
 
     STORAGE = File.join(::Sinatra::Base.settings.public_folder, 'comics')
-    attr_accessor :file, :orig_path
+    attr_accessor :file, :name
     property :id, Serial
     property :title, String, :required => true
     property :path, FilePath #make it required in the future?
@@ -38,6 +38,7 @@ module Afo
           delete_file if self.path
           logger.debug e.backtrace.join("\n\t")
           t.rollback
+          raise e.message
         end
       end
     end
@@ -88,7 +89,7 @@ module Afo
 
     def save_file
       File.open(storage_path, "wb") do |f|
-        f.write @file
+        f.write Base64.decode64(@file)
       end
     end
 
@@ -101,7 +102,7 @@ module Afo
     end
 
     def ext
-      orig_path.split('.').last
+      name.split('.').last
     end
   end
 end

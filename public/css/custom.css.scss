@@ -168,11 +168,18 @@ ul.dropdown {
   display: inline-block;
 }
 
-.app-spinner{
+.app-spinner {
   background-color: #fafafa;
   width: 80px;
   height: 80px;
   margin: 80px auto;
+}
+
+.button-spinner {
+  background-color: $white-color;
+  margin: 0 0;
+  width: 25px;
+  height: 25px;
 }
 
 h3.comic-title{
@@ -183,7 +190,6 @@ h3.comic-title{
 input[type="text"] {
   background-color: $background-color;
   border: 1px solid $white-color;
-  // color: $white-color;
 }
 
 .file-input {
@@ -194,12 +200,9 @@ input[type="text"] {
     padding: 0 30px;
   }
 }
+
 input[type="file"] {
   position: absolute;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
   opacity: 0.001;
   cursor: pointer;
   width: 100%;
@@ -216,19 +219,26 @@ button {
   border: 1px solid $white-color;
   transition: all 0.4s;
   margin-bottom: 1.5rem;
-  // text-transform: none;
-  // .form-control {
-  //   margin-top: 1.5rem;
-  // }
 }
 
 button.form-control {
   margin-top: 2.5rem;
 }
 
-
 button:hover {
   color: $orange-color;
   border-color: $orange-color;
 }
-/****forem end ***/
+
+input[disabled], button[disabled] {
+  border-color: $grey-color;
+  color: $grey-color;
+}
+
+button[disabled]:hover {
+  border-color: $grey-color;
+  color: $grey-color;
+}
+
+
+/****form end ***/

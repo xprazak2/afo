@@ -29,6 +29,22 @@ module Afo
       assert_equal @comic.title, data["title"]
     end
 
+    def test_post
+      Afo::Comic.any_instance.stubs(:save_file).returns(true)
+      post "/", { :comic => { :title => "test comic", :name => "test.png", :file => "ibah6b" }}
+      assert last_response.ok?
+      data = JSON.parse(last_response.body)
+      assert data["id"]
+    end
+
+    def test_post_fail
+      Afo::Comic.any_instance.stubs(:save_file).returns(true)
+      post "/", { :comic => { :title => "test comic", :name => "test.png" }}
+      assert_equal 422, last_response.status
+      data = JSON.parse(last_response.body)
+      assert_equal "No comic file supplied!", data["message"]
+    end
+
     # def test_delete
     #   @comic.expects(:delete_file)
     #   delete "/#{@comic.id}", {:id => @comic.id}

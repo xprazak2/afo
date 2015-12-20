@@ -1,26 +1,42 @@
 <h3>Upload new comic</h3>
 
-<form>
+<form name="comicForm">
   <div class="row">
     <div class="six columns">
       <label for="comicTitle">Title</label>
-      <input class="u-full-width" type="text" ng-model="comic.title">
+      <input class="u-full-width"
+             type="text"
+             name="title"
+             ng-model="comic.title"
+             ng-disabled="working"
+             required>
+      <p class="has-error" ng-show="(comicForm.$invalid && comicForm.title.$dirty)">
+        Comic needs a title
+      </p>
     </div>
   </div>
 
   <div class="row">
     <div class="six columns">
       <label for="comicFile">File: {{ file.name }}</label>
-      <button type="button" class="file-input">
-        <input type="file" fileread="file">
+      <button type="button" class="file-input" ng-disabled="working">
+        <input type="file" fileread="file" ng-disabled="working">
         <span>Choose file</span>
       </button>
+      <p class="has-error" ng-show="(!file.data && comicForm.title.$dirty)">
+        Comic needs an actual comic file
+      </p>
     </div>
   </div>
 
   <div class="row">
     <div class="six columns">
-      <button type="button" class="form-control u-pull-right" ng-click="saveComic()">Submit</button>
+      <button class="form-control u-pull-right"
+              ng-click="saveComic()"
+              ng-disabled="working || comicForm.$invalid || !file.data">
+        <span ng-show="!working">Submit</span>
+        <div class="sk-spinner sk-spinner-pulse u-pull-right button-spinner" ng-show="working"></div>
+      </button>
     </div>
   </div>
 </form>

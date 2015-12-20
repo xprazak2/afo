@@ -17,7 +17,6 @@ module Afo
     put "/:id" do
       #preliminary solution
       @comic = find_resource
-      @comic.file = params[:file]
       begin
         @comic.save
         render_resource
@@ -27,14 +26,14 @@ module Afo
     end
 
     post "/" do
-      #preliminary solution
       @comic = Comic.new params[:comic]
-      @comic.file = params[:file]
       begin
+        raise "Original file name with extension not supplied" unless params[:comic][:name]
+        raise "No comic file supplied!" unless params[:comic][:file]
         @comic.save
         render_resource
       rescue => e
-        render_error
+        render_error e.message
       end
     end
 

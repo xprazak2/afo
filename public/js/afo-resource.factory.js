@@ -11,7 +11,7 @@ angular.module('Afo').factory('AfoResource', ['$resource',
 
       methods = angular.extend(defaults, actions);
 
-      var resource = $resource(url, paramDefaults, actions);
+      var resource = $resource(url, paramDefaults, methods);
 
       resource.prototype.$save = function () {
         if (!this.id) {
