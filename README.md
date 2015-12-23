@@ -11,3 +11,4 @@ Coming soon...
 * shotgun config.ru
 * app should start on port 9393
 
+see Rakefile for useful tasks

@@ -36,7 +36,3 @@ task :destroy_sample_data do
   records = comics[:comics].map { |c| Afo::Comic.first :title => c[:title] }.compact
   records.map(&:destroy)
 end
-
-task :install_assets do
-  # TODO: Handle node installation on Debian/RH systems
-end
