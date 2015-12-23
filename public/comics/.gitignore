@@ -1,0 +1,5 @@
+# In this directory are stored comic files.
+# Ignore everything in here
+*
+# Except this file
+!.gitignore
