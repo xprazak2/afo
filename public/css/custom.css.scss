@@ -50,6 +50,21 @@ h3{
   font-size: $h3_plus_nav_font_size;
 }
 
+td.table-action {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $white-color;
+    font-size: 1.5em;
+  }
+
+  a:hover {
+    color: $orange-color;
+  }
+}
+
+
 /*main nav
 ------*/
 .navbar ul{
@@ -239,6 +254,5 @@ button[disabled]:hover {
   border-color: $grey-color;
   color: $grey-color;
 }
-
 
 /****form end ***/

@@ -40,7 +40,7 @@ module Afo
     delete "/:id" do
       @comic = find_resource
       begin
-        @comic.destroy
+        # @comic.destroy
         render_resource
       rescue => e
         render_error e.message

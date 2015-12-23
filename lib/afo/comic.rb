@@ -85,6 +85,10 @@ module Afo
       comics.each { |c| c.load_file }
     end
 
+    def created_at
+      super.strftime("%d %b %Y, %H:%M:%S %Z")
+    end
+
     private
 
     def save_file

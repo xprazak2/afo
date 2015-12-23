@@ -1,3 +1,3 @@
 collection @comics
 
-extends "comics/show"
+extends "comics/show_light"

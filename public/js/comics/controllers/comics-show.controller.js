@@ -48,10 +48,12 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
 
         success = function (response) {
             deferred.resolve(response);
+            // TODO: message
           };
 
         error = function (response) {
           deferred.reject(response);
+          // TODO: message
         };
 
         Comic.get({id: comicId}, success, error);
@@ -69,8 +71,9 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
             }
             $scope.loading = false;
           });
+        } else {
+          $scope.loading = false;
         }
-        $scope.loading = false;
       }
 
       getComic($stateParams.comicId);

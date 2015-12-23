@@ -1,1 +1,23 @@
-<p>This is comics list</p>
+<div ng-show="loading" class="sk-spinner sk-rotating-plane app-spinner"></div>
+
+<table ng-hide="loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Uploded at</th>
+      <th>Uploaded by</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="comic in comicList">
+      <td>{{ comic.id }}</td>
+      <td>{{ comic.title }}</td>
+      <td>{{ comic.created_at }}</td>
+      <td>{{ comic.user ? comic.user.name : '' }}</td>
+      <td class="table-action"><a href="#" ng-click="deleteComic(comic)">&times;</a></td>
+    </tr>
+  </tbody>
+</table>
