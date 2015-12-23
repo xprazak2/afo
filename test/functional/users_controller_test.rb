@@ -52,7 +52,7 @@ module Afo
       put "/#{@user.id}", params
       assert_equal 422, last_response.status
       data = JSON.parse(last_response.body)
-      assert_equal "name must be at least 4 characters long", data["errors"].first["name"].first
+      assert_equal "Name must be at least 4 characters long", data["errors"].first["name"].first
     end
   end
 end
