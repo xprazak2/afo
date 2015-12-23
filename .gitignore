@@ -37,7 +37,8 @@ build/
 
 #custom
 config/settings.yml
-public/comics/*
+public/comics/*.yml
+public/comics/*.png
 .tmp/
 node_modules/
 public/js/vendors/*

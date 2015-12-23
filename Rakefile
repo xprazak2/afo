@@ -26,7 +26,7 @@ end
 task :load_sample_data do
   require './lib/afo'
   comics = YAML.load(File.read("test/data/data.yml"))
-  comics[:comics].each { |hash| hash[:file] = File.read hash[:orig_path] }
+  comics[:comics].each { |hash| hash[:file] = File.read hash[:name] }
                  .map { |c| Afo::Comic.new c }.map(&:save)
 end
 

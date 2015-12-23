@@ -37,7 +37,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     .state('layout.comics.show', {
       url: '/:comicId',
       controller: 'ComicsShowCtrl',
-      templateUrl: '/comics/views/comics-home.html'
+      templateUrl: '/comics/views/comics-show.html'
     })
   }
 ]);

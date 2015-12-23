@@ -24,7 +24,11 @@
     </div>
   </div>
 
-  <div ng-show="!comic.file">
+  <div ng-show="comic && !comic.file">
     <p>{{ comic.error }}</p>
+  </div>
+
+  <div ng-show="ids.length == 0">
+    <p>No comics were uploaded yet.</p>
   </div>
 </div>

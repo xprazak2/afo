@@ -1,8 +1,8 @@
 ---
 :comics:
   - :title: "First comic title"
-    :orig_path: "test/data/first.png"
+    :name: "test/data/first.png"
   - :title: "Second comic title"
-    :orig_path: "test/data/second.png"
+    :name: "test/data/second.png"
   - :title: "Third comic title"
-    :orig_path: "test/data/third.png"
+    :name: "test/data/third.png"

@@ -12,8 +12,8 @@
   <script>
    <% ids = Afo::Comic.all.map(&:id) %>
     angular.module('Afo').constant('Constants', { comicCount: <%= ids.count %>,
-                                               firstId: <%= ids[0] %>,
-                                               lastId: <%= ids[-1] %>,
+                                               firstId: <%= ids[0] || -1 %>,
+                                               lastId: <%= ids[-1] || -1 %>,
                                                ids: <%= ids %> });
   </script>
   <%= javascript_tag 'afo-components' %>
