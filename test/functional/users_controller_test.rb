@@ -17,14 +17,14 @@ module Afo
       get '/'
       assert last_response.ok?
       data = JSON.parse(last_response.body)
-      assert_equal @user.username, data.first["username"]
+      assert_equal @user.name, data.first["name"]
     end
 
     def test_get_user
       get "/#{@user.id}"
       assert last_response.ok?
       data = JSON.parse(last_response.body)
-      assert_equal @user.username, data["username"]
+      assert_equal @user.name, data["name"]
       assert_equal @user.id, data["id"]
     end
 
@@ -37,22 +37,22 @@ module Afo
 
     def test_put_user
       params = {:id => @user.id, :user => {:id => @user.id,
-                                           :username => "administrator",
+                                           :name => "administrator",
                                            :password => "changeme_really"}}
       put "/#{@user.id}", params
       assert last_response.ok?
       data = JSON.parse(last_response.body)
-      assert_equal "administrator", data["username"]
+      assert_equal "administrator", data["name"]
     end
 
     def test_put_user_fail
       params = {:id => @user.id, :user => {:id => @user.id,
-                                           :username => "a",
+                                           :name => "a",
                                            :password => "changeme_really"}}
       put "/#{@user.id}", params
       assert_equal 422, last_response.status
       data = JSON.parse(last_response.body)
-      assert_equal "Username must be at least 4 characters long", data["errors"].first["username"].first
+      assert_equal "name must be at least 4 characters long", data["errors"].first["name"].first
     end
   end
 end
