@@ -85,8 +85,10 @@ module Afo
       comics.each { |c| c.load_file }
     end
 
-    def created_at
-      super.strftime("%d %b %Y, %H:%M:%S %Z")
+    %w(created_at updated_at).each do |method|
+      define_method "pretty_#{method}" do
+        instance_variable_get("@#{method}").strftime("%d %b %Y, %H:%M:%S %Z")
+      end
     end
 
     private
