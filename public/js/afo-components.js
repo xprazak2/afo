@@ -4,6 +4,9 @@
 //=require "directives/directives.module.js"
 //=require_tree "./directives"
 
+//=require "services/services.module.js"
+//=require_tree "./services"
+
 //=require "layout/layout.module.js"
 //=require_tree "./layout"
 

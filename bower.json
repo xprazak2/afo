@@ -6,7 +6,8 @@
     "skeleton": "~2.0.4",
     "angular": "~1.4.7",
     "angular-ui-router": "~0.2.15",
-    "angular-resource": "~1.4.7"
+    "angular-resource": "~1.4.7",
+    "angular-modal": "~0.5.0"
   },
   "exportsOverride": {
     "spinkit": {
@@ -24,6 +25,9 @@
     },
     "angular-resource": {
       "js/vendors": "./angular-resource.js"
+    },
+    "angular-modal": {
+      "js/vendors": "./modal.js"
     }
   }
 }

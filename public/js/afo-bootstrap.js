@@ -9,5 +9,6 @@ Modules = [
   'Afo.comics',
   'Afo.contents',
   'Afo.directives',
+  'Afo.services',
   'Afo.users',
 ];

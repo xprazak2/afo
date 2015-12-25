@@ -38,7 +38,7 @@ module Middleware
   end
 
   get "/*/views/:file.html" do
-    angular_modules = %w(comics contents layout users directives)
+    angular_modules = %w(comics contents layout users directives services)
     halt 404, 'No assets on this route' unless angular_modules.include? params['splat'].first
     content_type("text/html")
     path = [settings.assets.paths.first, params[:splat], "views", "#{params[:file]}.html"].join("/")

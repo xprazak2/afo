@@ -17,7 +17,7 @@
       <td>{{ comic.title }}</td>
       <td>{{ comic.created_at }}</td>
       <td>{{ comic.user ? comic.user.name : '' }}</td>
-      <td class="table-action"><a href="#" ng-click="deleteComic(comic)">&times;</a></td>
+      <td class="table-action"><a href="#" ng-click="deleteModal(comic)">&times;</a></td>
     </tr>
   </tbody>
 </table>

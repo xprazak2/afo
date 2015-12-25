@@ -1,6 +1,6 @@
 angular.module('Afo.comics').controller('ComicsListCtrl',
-  ['$scope', '$q', 'Comic',
-    function ($scope, $q, Comic) {
+  ['$scope', '$q', 'Comic', 'ConfirmModal',
+    function ($scope, $q, Comic, ConfirmModal) {
 
       var loadComics, getComics;
 
@@ -56,6 +56,10 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
           $scope.loading = false;
         });
       };
+
+      $scope.deleteModal = function (comic) {
+        ConfirmModal.activate();
+      }
 
       getComics();
     }
