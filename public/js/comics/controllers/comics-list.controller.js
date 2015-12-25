@@ -1,6 +1,6 @@
 angular.module('Afo.comics').controller('ComicsListCtrl',
-  ['$scope', '$q', 'Comic', 'ConfirmModal',
-    function ($scope, $q, Comic, ConfirmModal) {
+  ['$scope', '$q', 'Comic', 'ngDialog',
+    function ($scope, $q, Comic, ngDialog) {
 
       var loadComics, getComics;
 
@@ -58,7 +58,7 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
       };
 
       $scope.deleteModal = function (comic) {
-        ConfirmModal.activate();
+        ngDialog.open({ template: '/services/views/confirm-modal.html' });
       }
 
       getComics();

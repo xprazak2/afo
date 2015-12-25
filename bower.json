@@ -7,7 +7,7 @@
     "angular": "~1.4.7",
     "angular-ui-router": "~0.2.15",
     "angular-resource": "~1.4.7",
-    "angular-modal": "~0.5.0"
+    "ng-dialog": "~0.5.6"
   },
   "exportsOverride": {
     "spinkit": {
@@ -26,8 +26,9 @@
     "angular-resource": {
       "js/vendors": "./angular-resource.js"
     },
-    "angular-modal": {
-      "js/vendors": "./modal.js"
+    "ng-dialog": {
+      "js/vendors": "./js/ngDialog.js",
+      "css/vendors": "./css/ngDialog*.css"
     }
   }
 }

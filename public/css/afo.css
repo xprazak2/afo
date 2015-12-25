@@ -1,4 +1,9 @@
 //= require vendors/skeleton/normalize
+//= require vendors/ng-dialog/ngDialog
+//= require vendors/ng-dialog/ngDialog-theme-default
 //= require vendors/skeleton/skeleton
 //= require vendors/spinkit/spinkit
+
+//= require colors
 //= require custom
+//= require ngDialog-custom

@@ -1,0 +1,23 @@
+@import 'colors';
+
+.ngdialog-overlay {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+  background: $background-color;
+  color: $white-color;
+  font-family: aller;
+  padding: 1.5em;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-close:hover:before {
+  color: $orange-color;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+  color: $white-color;
+  font-family: aller;
+  transition: 0.4s color;
+}
+

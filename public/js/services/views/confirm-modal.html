@@ -1,4 +1,12 @@
-<div class="btf-modal">
-  <div> This is a modal</div>
-  <p><a href ng-click="modal.deactivate()">Close</a></p>
+<div>
+  <div class="row">
+    <div>This is confirmation modal. Click OK if you understand</div>
+  </div>
+
+  <div class="row">
+    <button class="u-pull-right modal-button"
+            ng-click="closeThisDialog('Some value')">
+      OK
+    </button>
+  </div>
 </div>
