@@ -17,7 +17,17 @@
       <td>{{ comic.title }}</td>
       <td>{{ comic.created_at }}</td>
       <td>{{ comic.user ? comic.user.name : '' }}</td>
-      <td class="table-action"><a href="#" ng-click="deleteModal(comic)">&times;</a></td>
+      <td class="table-action">
+        <div class="sk-spinner sk-spinner-pulse button-spinner"
+             ng-show="working">
+        </div>
+        <a href confirm-modal model="comic"
+                action="deleteTest(comic)"
+                item-name="comic.title"
+                ng-show="!working">
+          &times;
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -5,6 +5,7 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
       var loadComics, getComics;
 
       $scope.comicList = null;
+      // $scope.working = false;
 
       loadComics = function () {
         $scope.loading = true;
@@ -28,14 +29,12 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
 
       getComics = function () {
         loadComics().then(function (comics) {
-          console.log(comics);
-
           $scope.loading = false;
         });
       };
 
       $scope.deleteComic = function (comic) {
-        // $scope.loading = true;
+        $scope.loading = true;
         var success, error,
             deferred = $q.defer();
 
@@ -57,9 +56,10 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
         });
       };
 
-      $scope.deleteModal = function (comic) {
-        ngDialog.open({ template: '/services/views/confirm-modal.html' });
-      }
+      $scope.deleteTest = function (comic) {
+        console.log("delete test");
+        console.log(comic);
+      };
 
       getComics();
     }
