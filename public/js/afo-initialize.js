@@ -2,5 +2,6 @@
 //=require "vendors/angular-resource/angular-resource.js"
 //=require "vendors/angular-ui-router/angular-ui-router.js"
 //=require "vendors/ng-dialog/ngDialog.js"
+//=require "vendors/ng-notify/ng-notify.js"
 
 //=require "afo.module.js"

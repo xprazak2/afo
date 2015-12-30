@@ -53,7 +53,6 @@ module Afo
   end
 
   ::Sinatra::Base.configure do |s|
-    # s.before { env["rack.errors"] = Logging.logger }
     s.register Sinatra::Initializers
   end
 end

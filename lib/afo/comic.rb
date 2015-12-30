@@ -87,7 +87,8 @@ module Afo
 
     %w(created_at updated_at).each do |method|
       define_method "pretty_#{method}" do
-        instance_variable_get("@#{method}").strftime("%d %b %Y, %H:%M:%S %Z")
+        time = instance_variable_get("@#{method}")
+        time ? time.strftime("%d %b %Y, %H:%M:%S %Z") : nil
       end
     end
 

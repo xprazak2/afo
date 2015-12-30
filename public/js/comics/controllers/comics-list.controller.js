@@ -5,7 +5,14 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
       var loadComics, getComics;
 
       $scope.comicList = null;
-      // $scope.working = false;
+
+      $scope.$on('ngDialog.templateLoading', function () {
+        $scope.loading = true;
+      });
+
+      $scope.$on('ngDialog.templateLoaded', function () {
+        $scope.loading = false;
+      });
 
       loadComics = function () {
         $scope.loading = true;
@@ -14,13 +21,11 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
 
         success = function (response) {
             deferred.resolve(response);
-            // TODO: message
             $scope.comicList = response;
           };
 
         error = function (response) {
           deferred.reject(response);
-          // TODO: message
         };
 
         Comic.query(success, error);

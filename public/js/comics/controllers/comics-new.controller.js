@@ -1,6 +1,6 @@
 angular.module('Afo.comics').controller('ComicsNewCtrl',
-  ['$scope', 'Comic',
-    function ($scope, Comic) {
+  ['$scope', 'Comic', 'ngNotify',
+    function ($scope, Comic, ngNotify) {
       console.log("comics new controller")
 
       $scope.comic = new Comic();
@@ -11,10 +11,12 @@ angular.module('Afo.comics').controller('ComicsNewCtrl',
 
       success = function (response) {
         $scope.working = false;
+        ngNotify.set('New comic sucessfully uploaded.', 'success');
       };
 
       error = function (response) {
         $scope.working = false;
+        ngNotify.set(response.data.message, 'error');
       };
 
       parseFileContent = function (dataString) {

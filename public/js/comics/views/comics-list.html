@@ -1,33 +1,32 @@
 <div ng-show="loading" class="sk-spinner sk-rotating-plane app-spinner"></div>
 
-<table ng-hide="loading">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Uploded at</th>
-      <th>Uploaded by</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
+<div ng-hide="loading">
+  <div ng-show="!comicList">Error during loading comics list ocurred, sorry.</div>
+  <table ng-show="comicList">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Uploded at</th>
+        <th>Uploaded by</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr ng-repeat="comic in comicList">
-      <td>{{ comic.id }}</td>
-      <td>{{ comic.title }}</td>
-      <td>{{ comic.created_at }}</td>
-      <td>{{ comic.user ? comic.user.name : '' }}</td>
-      <td class="table-action">
-        <div class="sk-spinner sk-spinner-pulse button-spinner"
-             ng-show="working">
-        </div>
-        <a href confirm-modal model="comic"
-                action="deleteTest(comic)"
-                item-name="comic.title"
-                ng-show="!working">
-          &times;
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr ng-repeat="comic in comicList">
+        <td>{{ comic.id }}</td>
+        <td>{{ comic.title }}</td>
+        <td>{{ comic.created_at }}</td>
+        <td>{{ comic.user ? comic.user.name : '' }}</td>
+        <td class="table-action">
+          <a href confirm-modal model="comic"
+                  action="deleteTest(comic)"
+                  item-name="comic.title">
+            &times;
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
