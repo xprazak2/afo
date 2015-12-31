@@ -52,7 +52,7 @@ module Afo
           logger.error "Error during removal of the file: #{path}."
           logger.debug e.backtrace.join("\n\t")
           t.rollback
-          raise
+          raise e.message
         end
       end
     end

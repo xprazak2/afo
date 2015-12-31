@@ -1,10 +1,11 @@
 angular.module('Afo.comics').controller('ComicsListCtrl',
-  ['$scope', '$q', 'Comic', 'ngDialog',
-    function ($scope, $q, Comic, ngDialog) {
+  ['$scope', '$q', 'Comic', 'ngDialog', 'ngNotify',
+    function ($scope, $q, Comic, ngDialog, ngNotify) {
 
       var loadComics, getComics;
 
       $scope.comicList = null;
+      $scope.working = false;
 
       $scope.$on('ngDialog.templateLoading', function () {
         $scope.loading = true;
@@ -39,31 +40,32 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
       };
 
       $scope.deleteComic = function (comic) {
-        $scope.loading = true;
+        $scope.working = true;
         var success, error,
             deferred = $q.defer();
 
         success = function (response) {
             deferred.resolve(response);
-            // TODO: message
+            ngNotify.set("Comic with title: '" + response.title + "' deleted. R u happy now?", 'success');
             $scope.comicList = $scope.comicList.filter(function (listedComic) {
               return listedComic.id !== response.id;
             });
+            // $scope.ids = $scope.ids.filter(function (id) {
+            //   return id !== response.id;
+            // });
+            console.log($scope.$parent)
           };
 
         error = function (response) {
           deferred.reject(response);
+          ngNotify.set("Failed to delete comic: " + response.data.message, 'error');
           // TODO: message
         };
 
         comic.$remove(success, error).then(function (data) {
-          $scope.loading = false;
+          $scope.working = false;
         });
-      };
-
-      $scope.deleteTest = function (comic) {
-        console.log("delete test");
-        console.log(comic);
+        return deferred.promise;
       };
 
       getComics();

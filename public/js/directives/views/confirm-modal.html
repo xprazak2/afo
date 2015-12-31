@@ -19,8 +19,10 @@
 
   <div class="row">
     <button class="u-pull-right modal-button"
-            ng-click="confirm()">
-      Yes
+            ng-click="confirm()"
+            ng-disabled="working">
+      <span ng-show="!working">Yes</span>
+      <div class="sk-spinner sk-spinner-pulse u-pull-right button-spinner" ng-show="working"></div>
     </button>
   </div>
 </div>

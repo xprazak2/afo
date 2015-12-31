@@ -2,7 +2,8 @@
 
 <div ng-hide="loading">
   <div ng-show="!comicList">Error during loading comics list ocurred, sorry.</div>
-  <table ng-show="comicList">
+  <div ng-show="comicList && comicList.length == 0">No comics were found to list, sorry.</div>
+  <table ng-show="comicList && comicList.length > 0">
     <thead>
       <tr>
         <th>ID</th>
@@ -21,8 +22,9 @@
         <td>{{ comic.user ? comic.user.name : '' }}</td>
         <td class="table-action">
           <a href confirm-modal model="comic"
-                  action="deleteTest(comic)"
-                  item-name="comic.title">
+                  action="deleteComic(comic)"
+                  item-name="comic.title"
+                  working="working">
             &times;
           </a>
         </td>

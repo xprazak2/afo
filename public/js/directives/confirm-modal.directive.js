@@ -6,14 +6,20 @@ angular.module('Afo.directives').directive('confirmModal',
         scope: {
           model: "=",
           itemName: "=",
-          action: "&"
+          action: "&",
+          working: "="
         },
         link: function (scope, element, attrs) {
           element.on("click", function () {
             scope.$dialog = ngDialog.open({
               templateUrl: '/directives/views/confirm-modal.html',
               controller: 'ConfirmModalCtrl',
-              scope: scope
+              scope: scope,
+              preCloseCallback: function (value) {
+                return scope.action().then(function (response) {
+                  return true;
+                });
+              }
             });
           });
         }
@@ -25,7 +31,7 @@ angular.module('Afo.directives').directive('confirmModal',
     function ($scope) {
 
       $scope.confirm = function () {
-        $scope.action();
+        // $scope.action()
         $scope.closeThisDialog('Closing value');
       };
 
