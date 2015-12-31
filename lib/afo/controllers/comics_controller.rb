@@ -4,7 +4,7 @@ module Afo
   class ComicsController < Api
 
     get "/" do
-      #not handling when there are comic files missing
+      #not handling when there are comic files missing since we are using 'light' view w-o comic files
       @comics = Comic.all
       render_index
     end
@@ -40,7 +40,7 @@ module Afo
     delete "/:id" do
       @comic = find_resource
       begin
-        # @comic.destroy
+        @comic.destroy
         render_resource
       rescue => e
         render_error e.message

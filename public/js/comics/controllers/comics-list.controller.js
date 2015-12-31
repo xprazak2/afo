@@ -50,16 +50,12 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
             $scope.comicList = $scope.comicList.filter(function (listedComic) {
               return listedComic.id !== response.id;
             });
-            // $scope.ids = $scope.ids.filter(function (id) {
-            //   return id !== response.id;
-            // });
-            console.log($scope.$parent)
+            $scope.$emit('comicDeleted', response.id);
           };
 
         error = function (response) {
           deferred.reject(response);
           ngNotify.set("Failed to delete comic: " + response.data.message, 'error');
-          // TODO: message
         };
 
         comic.$remove(success, error).then(function (data) {
