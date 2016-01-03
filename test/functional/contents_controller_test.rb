@@ -27,11 +27,11 @@ module Afo
     end
 
     def test_put_content
-      params = {:id => @content.id, :content => {:name => "new name", :content => "very pretty"}}
+      params = {:id => @content.id, :content => {:title => "new title", :content => "very pretty"}}
       put "/#{@content.id}", params
       assert last_response.ok?
       data = JSON.parse(last_response.body)
-      assert_equal params[:content][:name], data["name"]
+      assert_equal params[:content][:title], data["title"]
     end
 
   end

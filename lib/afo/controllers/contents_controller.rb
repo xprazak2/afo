@@ -13,7 +13,7 @@ module Afo
       if @content.update params[:content]
         render_resource
       else
-        render_validation_errrors
+        render_validation_errors
       end
     end
 
@@ -22,7 +22,7 @@ module Afo
       if @content.save
         render_resource
       else
-        render_validation_errrors
+        render_validation_errors
       end
     end
   end

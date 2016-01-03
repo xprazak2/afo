@@ -5,12 +5,10 @@
   </button>
 
   <div ng-show="!model.title && !editing">No content here, sorry.</div>
+  <div ng-show="!editing && !working" ng-bind-html="trustAsHtml(model.kram_content)"></div>
 </div>
 
 <!-- <div class="row"> -->
-<div ng-show="!editing && !working">
-  {{ model.content }}
-</div>
 <!-- </div> -->
 
 <form name="contentForm" ng-show="editing">

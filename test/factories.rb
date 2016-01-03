@@ -14,7 +14,7 @@ FactoryGirl.define do
   end
 
   factory :content, :class => Afo::Content do
-    name "some_name"
+    title "some_name"
     content "some_content"
   end
 end

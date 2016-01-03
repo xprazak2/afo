@@ -22,6 +22,7 @@ require 'tilt/erb'
 require 'sass'
 require 'sprockets-helpers'
 require 'active_support/all'
+require 'kramdown'
 
 module Afo
 

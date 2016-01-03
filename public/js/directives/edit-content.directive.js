@@ -11,10 +11,11 @@ angular.module('Afo.directives').directive('editContent',
   }
 ])
 .controller('EditContentCtrl',
-  ['$scope', '$q', '$stateParams', 'Content', 'ngNotify',
-    function ($scope, $q, $stateParams, Content, ngNotify) {
+  ['$scope', '$q', '$stateParams', '$sce', 'Content', 'ngNotify',
+    function ($scope, $q, $stateParams, $sce, Content, ngNotify) {
       $scope.working = false;
       $scope.editing = false;
+      $scope.trustAsHtml = $sce.trustAsHtml;
 
       $scope.saveContent = function () {
         var success, error,
@@ -32,13 +33,20 @@ angular.module('Afo.directives').directive('editContent',
         error = function (response) {
           deferred.reject(response);
           $scope.working = false;
-          ngNotify.set("Error occured: " + response.data.message, "error");
+          ngNotify.set("Error occured: " + response.data.errors, "error");
         }
 
         var content = $scope.model;
         content.title = content.title || $stateParams.contentId;
         $scope.working = true;
-        Content.save({content: content}, success, error);
+        delete content.kram_content
+        //TODO redefine method in factory
+        if(content.id) {
+          console.log(content.id)
+          Content.update({content: content, id: content.id}, success, error);
+        } else {
+          Content.save({content: content}, success, error);
+        }
       };
     }
 ])
