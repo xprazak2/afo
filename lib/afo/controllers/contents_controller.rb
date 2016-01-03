@@ -18,8 +18,7 @@ module Afo
     end
 
     post "/" do
-      #preliminary
-      @content = Conetent.new params[:content]
+      @content = Content.new params[:content]
       if @content.save
         render_resource
       else

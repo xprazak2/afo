@@ -18,8 +18,6 @@ angular.module('Afo.directives').directive('tableAction',
 
     $scope.working = false;
 
-    console.log($scope.comic);
-
     $scope.$on('ngDialog.templateLoading', function (e, $dialog) {
       $scope.working = true;
     });

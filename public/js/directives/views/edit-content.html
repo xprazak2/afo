@@ -1,0 +1,36 @@
+<div class="row">
+
+  <button class="u-pull-right action-control" ng-click="editing = true" ng-disabled="editing">
+    Edit
+  </button>
+
+  <div ng-show="!model.title && !editing">No content here, sorry.</div>
+</div>
+
+<!-- <div class="row"> -->
+<div ng-show="!editing && !working">
+  {{ model.content }}
+</div>
+<!-- </div> -->
+
+<form name="contentForm" ng-show="editing">
+  <div class="row">
+    <!-- <div class="twelve columns"> -->
+      <textarea class="parent-width" ng-model="model.content" ng-disabled="working"></textarea>
+    <!-- </div> -->
+  </div>
+  <div class="row">
+    <button class="form-control u-pull-right"
+              ng-click="saveContent()"
+              ng-disabled="working">
+      <span ng-hide="working">Submit</span>
+      <div class="sk-spinner sk-spinner-pulse u-pull-right button-spinner" ng-show="working"></div>
+    </button>
+    <button class="form-control u-pull-right"
+            ng-click="editing = false"
+            ng-disabled="working">
+      Cancel
+    </button>
+  </div>
+</form>
+

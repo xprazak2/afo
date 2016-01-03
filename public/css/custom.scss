@@ -191,7 +191,13 @@ h3.comic-title{
 }
 
 /***forms***/
-input[type="text"] {
+.parent-width {
+  max-width: 100%;
+  width: 100%;
+}
+
+input[type="text"],
+textarea {
   background-color: $background-color;
   border: 1px solid $white-color;
 }
@@ -214,7 +220,8 @@ input[type="file"] {
   box-sizing: border-box;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+textarea:focus {
   border: 1px solid $orange-color;
 }
 
@@ -227,6 +234,11 @@ button {
 
 button.form-control {
   margin-top: 2.5rem;
+  margin-left: 1.5rem;
+}
+
+button.action-control {
+  margin-bottom: 4rem;
 }
 
 button.modal-button {
@@ -250,7 +262,7 @@ button:hover {
   border-color: $orange-color;
 }
 
-input[disabled], button[disabled] {
+input[disabled], button[disabled], textarea[disabled] {
   border-color: $grey-color;
   color: $grey-color;
 }

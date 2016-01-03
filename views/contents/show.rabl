@@ -1,2 +1,2 @@
 object @content
-attributes :id, :name, :content
+attributes :id, :title, :content

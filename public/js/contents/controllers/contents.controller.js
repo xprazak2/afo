@@ -2,7 +2,7 @@ angular.module('Afo.contents').controller('ContentsCtrl',
   ['$scope', '$state', '$stateParams','$q', 'Content',
     function ($scope, $state, $stateParams, $q, Content) {
 
-      $scope.content = $scope.content || null;
+      $scope.content = $scope.content || new Content();
 
       var loadContent, getContent;
 

@@ -31,7 +31,6 @@ angular.module('Afo.directives').directive('confirmModal',
     function ($scope) {
 
       $scope.confirm = function () {
-        // $scope.action()
         $scope.closeThisDialog('Closing value');
       };
 
