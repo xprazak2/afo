@@ -1,7 +1,7 @@
-require 'api'
+require 'api_controller'
 
 module Afo
-  class ComicsController < Api
+  class ComicsController < ApiController
 
     get "/" do
       #not handling when there are comic files missing since we are using 'light' view w-o comic files

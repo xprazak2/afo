@@ -1,7 +1,7 @@
-require 'api'
+require 'api_controller'
 
 module Afo
-  class UsersController < Api
+  class UsersController < ApiController
 
     get "/" do
       @users = User.all

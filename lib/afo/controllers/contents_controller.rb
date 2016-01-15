@@ -1,7 +1,7 @@
-require 'api'
+require 'api_controller'
 
 module Afo
-  class ContentsController < Api
+  class ContentsController < ApiController
 
     get "/:id" do
       @content = find_resource

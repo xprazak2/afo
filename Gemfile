@@ -11,7 +11,8 @@ gem 'sprockets', '~> 3.3.4'
 gem 'sprockets-helpers'
 gem 'rabl', '~> 0.11.6'
 gem 'rack-contrib'
-gem 'kramdown'
+gem 'kramdown', '1.9.0'
+gem 'warden', '~> 1.2.4'
 
 group :development do
   gem 'shotgun'

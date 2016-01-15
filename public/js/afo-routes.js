@@ -39,5 +39,10 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       controller: 'ComicsShowCtrl',
       templateUrl: '/comics/views/comics-show.html'
     })
+    .state('layout.users', {
+      url: '/users',
+      controller: 'UsersCtrl',
+      templateUrl: '/usersl/views/users-show.html'
+    })
   }
 ]);

@@ -23,6 +23,7 @@ require 'sass'
 require 'sprockets-helpers'
 require 'active_support/all'
 require 'kramdown'
+require 'warden'
 
 module Afo
 

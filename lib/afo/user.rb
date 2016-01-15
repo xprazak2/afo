@@ -1,6 +1,9 @@
+require 'bcrypt'
+
 module Afo
   class User
     include ::DataMapper::Resource
+    include BCrypt
 
     self.raise_on_save_failure = true
 
@@ -21,6 +24,11 @@ module Afo
 
     def to_s
       to_initial
+    end
+
+    def self.authenticate(username, pass)
+      user = first(:name => username)
+      user && ::BCrypt::Password.new(user.password).is_password?(pass) ? user : nil
     end
   end
 end

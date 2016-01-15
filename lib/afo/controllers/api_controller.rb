@@ -1,6 +1,7 @@
 require 'rabl'
+require 'application_controller'
 module Afo
-  class Api < ::Sinatra::Base
+  class ApiController < ApplicationController
     include Afo::Rendering
 
     Rabl.configure do |config|

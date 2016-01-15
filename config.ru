@@ -17,10 +17,6 @@ require 'rack/contrib'
 use Rack::PostBodyContentTypeParser
 use Middleware::Assets
 
-#map "/api" do
-#  run Afo::Api
-#end
-
 map "/api/contents" do
   run Afo::ContentsController
 end
@@ -34,9 +30,9 @@ map "/api/comics" do
 end
 
 map "/" do
-  run Afo::PublicContent
+  run Afo::PublicController
 end
 
 map "/private" do
-  run Afo::PrivateContent
+  run Afo::PrivateController
 end

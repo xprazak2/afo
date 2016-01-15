@@ -1,1 +1,23 @@
-<p>Private view</p>
+<div class="row">
+  <form action="/private/login" method="post">
+    <div class="row">
+      <div class="three columns">
+        <label for="user[name]">Name</label>
+        <input type="text" name="user[name]" class="u-full-width"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three columns">
+        <label for="user[password]">Password</label>
+        <input type="password" name="user[password]" class="u-full-width"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three columns">
+        <button type="submit" class="form-control u-pull-right">Submit</button>
+        </div>
+    </div>
+  </form>
+</div>

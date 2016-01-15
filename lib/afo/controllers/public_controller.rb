@@ -1,5 +1,7 @@
+require 'application_controller'
+
 module Afo
-  class PublicContent < ::Sinatra::Base
+  class PublicController < ApplicationController
 
     helpers do
       include Sprockets::Helpers
