@@ -1,2 +1,2 @@
 object @user
-attributes :id, :name, :password, :created_at, :updated_at
+attributes :id, :name, :last_login

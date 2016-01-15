@@ -12,6 +12,7 @@ module Afo
     property :password, BCryptHash, :required => true
     property :created_at, DateTime
     property :updated_at, DateTime
+    property :last_login, DateTime
 
     validates_length_of :name, :min => 4
     validates_length_of :password, :min => 4

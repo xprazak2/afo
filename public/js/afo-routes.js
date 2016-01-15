@@ -35,14 +35,18 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       templateUrl: '/comics/views/comics-new.html'
     })
     .state('layout.comics.show', {
-      url: '/:comicId',
+      url: '/{comicId:int}',
       controller: 'ComicsShowCtrl',
       templateUrl: '/comics/views/comics-show.html'
     })
     .state('layout.users', {
-      url: '/users',
-      controller: 'UsersCtrl',
-      templateUrl: '/usersl/views/users-show.html'
+      abstract: true,
+      template: '<div ui-view></div>'
+    })
+    .state('layout.users.show', {
+      url: '/users/:userId',
+      controller: 'UsersShowCtrl',
+      templateUrl: '/users/views/users-show.html'
     })
   }
 ]);
