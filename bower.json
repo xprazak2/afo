@@ -8,7 +8,8 @@
     "angular-ui-router": "~0.2.15",
     "angular-resource": "~1.4.7",
     "ng-dialog": "~0.5.6",
-    "ng-notify": "~0.7.1"
+    "ng-notify": "~0.7.1",
+    "angular-validation-match": "~1.7.1"
   },
   "exportsOverride": {
     "spinkit": {
@@ -34,6 +35,9 @@
     "ng-notify": {
       "js/vendors": "./src/scripts/ng-notify.js",
       "css/vendors": "./src/styles/ng-notify.sass"
+    },
+    "angular-validation-match": {
+      "js/vendors": "./src/angular-validation-match.js"
     }
   }
 }

@@ -31,5 +31,11 @@ module Afo
       user = first(:name => username)
       user && ::BCrypt::Password.new(user.password).is_password?(pass) ? user : nil
     end
+
+    def update(params)
+      #workaround for possible bug in DataMapper for hashed fields
+      self.password = params[:password] || self.password
+      save
+    end
   end
 end

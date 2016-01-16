@@ -1,0 +1,40 @@
+<h3>Change password for {{ user.name }}</h3>
+
+<form name="userForm">
+  <div class="row">
+    <div class="six columns">
+      <label for="password">Password</label>
+      <input type="password"
+             class="u-full-width"
+             ng-model="newPass.password"
+             name="password"
+             required />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password"
+             class="u-full-width"
+             ng-model="newPass.confirmPassword"
+             match="newPass.password"
+             name="confirmPassword"
+             required />
+      <p class="has-error" ng-show="userForm.confirmPassword.$error.match">
+        Password fields do not match!
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+      <button class="form-control u-pull-right"
+              ng-click="saveUser()"
+              ng-disabled="working || userForm.$invalid">
+        <span ng-show="!working">Submit</span>
+        <div class="sk-spinner sk-spinner-pulse u-pull-right button-spinner" ng-show="working"></div>
+      </button>
+    </div>
+  </div>
+</form>

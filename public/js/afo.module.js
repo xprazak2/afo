@@ -2,7 +2,8 @@ angular.module('Afo', [
   'ui.router',
   'ngResource',
   'ngDialog',
-  'ngNotify'
+  'ngNotify',
+  'validation.match'
 ])
 .run(['ngNotify',
   function (ngNotify) {

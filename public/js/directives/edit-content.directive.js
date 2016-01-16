@@ -42,7 +42,6 @@ angular.module('Afo.directives').directive('editContent',
         delete content.kram_content
         //TODO redefine method in factory
         if(content.id) {
-          console.log(content.id)
           Content.update({content: content, id: content.id}, success, error);
         } else {
           Content.save({content: content}, success, error);

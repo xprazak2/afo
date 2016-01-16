@@ -48,5 +48,10 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       controller: 'UsersShowCtrl',
       templateUrl: '/users/views/users-show.html'
     })
+    .state('layout.users.edit', {
+      url: '/users/:userId/edit',
+      controller: 'UsersEditCtrl',
+      templateUrl: '/users/views/users-edit.html'
+    })
   }
 ]);

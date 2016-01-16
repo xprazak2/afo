@@ -8,14 +8,10 @@
   <div ng-show="!editing && !working" ng-bind-html="trustAsHtml(model.kram_content)"></div>
 </div>
 
-<!-- <div class="row"> -->
-<!-- </div> -->
 
 <form name="contentForm" ng-show="editing">
   <div class="row">
-    <!-- <div class="twelve columns"> -->
-      <textarea class="parent-width" ng-model="model.content" ng-disabled="working"></textarea>
-    <!-- </div> -->
+    <textarea class="parent-width" ng-model="model.content" ng-disabled="working"></textarea>
   </div>
   <div class="row">
     <button class="form-control u-pull-right"
