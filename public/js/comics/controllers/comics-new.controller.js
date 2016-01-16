@@ -1,7 +1,6 @@
 angular.module('Afo.comics').controller('ComicsNewCtrl',
   ['$scope', 'Comic', 'ngNotify',
     function ($scope, Comic, ngNotify) {
-      console.log("comics new controller")
 
       $scope.comic = new Comic();
       $scope.file = {};
