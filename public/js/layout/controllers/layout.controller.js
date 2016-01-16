@@ -16,12 +16,16 @@ angular.module('Afo.layout').controller('LayoutCtrl',
         $scope.lastId = $scope.ids[$scope.ids.length - 1] || -1
       });
 
-      $scope.setCurrentUser = function (user) {
-        $scope.currentUser = user;
+      $scope.$on('logout', function (event) {
+        $scope.currentUser = null;
+      });
+
+      $scope.getCurrentUser = function () {
+        return $scope.currentUser;
       };
 
       $scope.authorized = function () {
-        !!$scope.currentUser == true;
+        return !!$scope.currentUser;
       };
 
       $scope.logout = function () {

@@ -1,4 +1,5 @@
 require 'application_controller'
+require 'json'
 
 module Afo
   class PrivateController < ApplicationController
@@ -18,6 +19,12 @@ module Afo
       else
         redirect '/private'
       end
+    end
+
+    get '/logout' do
+      # warden.logout
+      content_type :json
+      { message: "OK" }.to_json
     end
 
   end

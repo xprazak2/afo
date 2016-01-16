@@ -6,7 +6,7 @@
     <li><a ui-sref="layout.contents({contentId: 'disclaimer'})">Disclaimer</a></li>
   </ul>
 
-  <ul class="two columns offset-by-four dropdown">
+  <ul class="two columns offset-by-four dropdown" ng-if="authorized()">
     <li>
       <a href="#">OO <span class="arrow">&#9660;</span></a>
       <ul class="submenu">

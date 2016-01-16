@@ -27,7 +27,17 @@
 
   <div class="five columns">
     <div class="row">
-      <div class="u-pull-right"><button>Log Out</button></div>
+      <div class="u-pull-right">
+        <button confirm-modal
+                model="user"
+                action="logout()"
+                text="You are about to log out."
+                working="working"
+                ng-disable="modalLoading">
+          <span ng-show="!modalLoading">Log out</span>
+          <div class="sk-spinner sk-spinner-pulse u-pull-right button-spinner" ng-show="modalLoading"></div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
