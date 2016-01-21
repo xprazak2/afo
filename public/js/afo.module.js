@@ -3,7 +3,7 @@ angular.module('Afo', [
   'ngResource',
   'ngDialog',
   'ngNotify',
-  'validation.match'
+  'validation.match',
 ])
 .run(['ngNotify',
   function (ngNotify) {

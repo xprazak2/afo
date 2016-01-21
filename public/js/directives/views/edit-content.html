@@ -1,8 +1,14 @@
 <div class="row">
 
-  <button class="u-pull-right action-control" ng-click="editing = true" ng-disabled="editing">
-    Edit
-  </button>
+  <!-- ng-if interferes with ng-show/hide -->
+  <div ng-show="authorized">
+    <button class="u-pull-right action-control"
+            ng-click="editing = true"
+            ng-disabled="editing"
+            >
+      Edit
+    </button>
+  </div>
 
   <div ng-show="!model.title && !editing">No content here, sorry.</div>
   <div ng-show="!editing && !working" ng-bind-html="trustAsHtml(model.kram_content)"></div>

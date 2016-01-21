@@ -3,7 +3,8 @@ angular.module('Afo.directives').directive('editContent',
     return {
       restrict: 'A',
       scope: {
-        model: '='
+        model: '=',
+        authorized: '='
       },
       templateUrl: '/directives/views/edit-content.html',
       controller: 'EditContentCtrl'

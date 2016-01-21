@@ -19,7 +19,8 @@
                                                     last_login: <%= current_user.last_login %> });
     <% else %>
     // angular.module('Afo').constant('CurrentUser', null);
-    angular.module('Afo').constant('CurrentUser', { id: 4, name: "TestAdmin", last_login: "17. 8. 1583"});
+    angular.module('Afo').constant('CurrentUser',
+     { id: 4, name: "TestAdmin", last_login: "17. 8. 1583"});
     <% end %>
   </script>
   <%= javascript_tag 'afo-components' %>

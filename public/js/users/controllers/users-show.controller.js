@@ -21,8 +21,6 @@ angular.module('Afo.users').controller('UsersShowCtrl',
           deferred.resolve(response);
           $scope.working = false;
           $scope.$emit("logout")
-          // $scope.logout();
-          console.log($scope.getCurrentUser());
           ngNotify.set("You have successfully logged out. See ya!", "success");
           $state.transitionTo("layout.comics.show", {comicId: $scope.lastId});
         });

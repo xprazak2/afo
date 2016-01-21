@@ -26,12 +26,10 @@ angular.module('Afo.contents').controller('ContentsCtrl',
       getContent = function (contentId) {
         var onSucc, onErr;
         onSucc = function (content) {
-          console.log(content);
           $scope.content = content;
           $scope.loading = false;
         };
         onErr = function (error) {
-          console.log(error);
           $scope.loading = false;
         };
         loadContent(contentId).then(onSucc, onErr);

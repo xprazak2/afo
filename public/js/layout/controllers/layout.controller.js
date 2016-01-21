@@ -1,11 +1,12 @@
 angular.module('Afo.layout').controller('LayoutCtrl',
-  ['$scope', 'Constants', 'CurrentUser',
-    function ($scope, Constants, CurrentUser) {
+  ['$scope', 'Constants', 'Auth',
+    function ($scope, Constants, Auth) {
 
       $scope.firstId = Constants.firstId;
       $scope.lastId = Constants.lastId;
       $scope.ids = Constants.ids;
-      $scope.currentUser = CurrentUser;
+      $scope.authorized = Auth.authorized;
+      $scope.currentUser = Auth.getCurrentUser();
 
       $scope.$on('comicDeleted', function(event, id) {
         $scope.ids = $scope.ids.filter(function (listedId) {
@@ -17,19 +18,9 @@ angular.module('Afo.layout').controller('LayoutCtrl',
       });
 
       $scope.$on('logout', function (event) {
+        Auth.logout();
         $scope.currentUser = null;
       });
 
-      $scope.getCurrentUser = function () {
-        return $scope.currentUser;
-      };
-
-      $scope.authorized = function () {
-        return !!$scope.currentUser;
-      };
-
-      $scope.logout = function () {
-        $scope.currentUser = null;
-      };
     }
 ]);
