@@ -4,6 +4,6 @@ addons:
   postgresql: "9.3"
 before_install:
   - sudo apt-get update -qq
-#  - sudo apt-get install -qq postgresql
+  - sudo apt-get install -qq postgresql
 #  - sudo apt-get install -qq postgresql-server-dev-9.3
 #  - sudo apt-get install -qq libpq-dev
