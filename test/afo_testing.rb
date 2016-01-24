@@ -16,6 +16,7 @@ module Afo
   require 'logging'
   require 'settings'
   require 'kramdown'
+  require 'warden'
   DataMapper::Resource.send :include, Logging
   require 'user'
   require 'comic'
