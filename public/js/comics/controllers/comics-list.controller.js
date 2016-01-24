@@ -8,15 +8,15 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
       $scope.working = false;
 
       $scope.$on('ngDialog.templateLoading', function () {
-        $scope.loading = true;
+        $scope.isLoading(true);
       });
 
       $scope.$on('ngDialog.templateLoaded', function () {
-        $scope.loading = false;
+        $scope.isLoading(false);
       });
 
       loadComics = function () {
-        $scope.loading = true;
+        $scope.isLoading(true);
         var success, error,
             deferred = $q.defer();
 
@@ -35,7 +35,7 @@ angular.module('Afo.comics').controller('ComicsListCtrl',
 
       getComics = function () {
         loadComics().then(function (comics) {
-          $scope.loading = false;
+          $scope.isLoading(false);
         });
       };
 

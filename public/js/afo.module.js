@@ -16,10 +16,13 @@ angular.module('Afo', [
       button: false
     });
 
+    $rootScope.loading = false;
     $rootScope.$on('$stateChangeStart', function (event, toState) {
+      $rootScope.loading = true;
       if (toState.authorize && !Auth.authorized() ) {
         $location.path("/unauthorized").replace();
       }
     });
+
   }
 ]);

@@ -7,7 +7,7 @@ angular.module('Afo.contents').controller('ContentsCtrl',
       var loadContent, getContent;
 
       loadContent = function (contentId) {
-        $scope.loading = true;
+        $scope.isLoading(true);
         var succes, error,
           deferred = $q.defer();
 
@@ -27,10 +27,10 @@ angular.module('Afo.contents').controller('ContentsCtrl',
         var onSucc, onErr;
         onSucc = function (content) {
           $scope.content = content;
-          $scope.loading = false;
+          $scope.isLoading(false);
         };
         onErr = function (error) {
-          $scope.loading = false;
+          $scope.isLoading(false);
         };
         loadContent(contentId).then(onSucc, onErr);
       }

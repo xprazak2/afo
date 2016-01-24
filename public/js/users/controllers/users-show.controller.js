@@ -2,9 +2,9 @@ angular.module('Afo.users').controller('UsersShowCtrl',
   ['$scope', '$state', '$http', '$q','User', 'ngNotify',
     function ($scope, $state, $http, $q, User, ngNotify) {
 
-      $scope.loading = $scope.loading || false;
       $scope.working = false;
       $scope.user = $scope.currentUser;
+      $scope.isLoading(false);
 
       $scope.$on('ngDialog.templateLoading', function () {
         $scope.modalLoading = true;

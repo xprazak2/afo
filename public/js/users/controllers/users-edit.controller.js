@@ -4,6 +4,7 @@ angular.module('Afo.users').controller('UsersEditCtrl',
 
       $scope.newPass = {};
       $scope.user = $scope.currentUser;
+      $scope.isLoading(false);
 
       $scope.saveUser = function () {
         var success, error,
@@ -19,7 +20,6 @@ angular.module('Afo.users').controller('UsersEditCtrl',
 
           error = function (response) {
             deferred.reject(response);
-            console.log(response);
             $scope.working = false;
             ngNotify.set("Error occured: " + response.data.message, "error");
           };

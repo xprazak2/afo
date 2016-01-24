@@ -3,6 +3,7 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
     function ($scope, $q, $stateParams, Comic, Constants) {
 
       $scope.comic = $scope.comic || null;
+      console.log($scope.loading)
 
       var loadComic, getComic, random, neighbour, chooseRandom, findNeighbours,
           markNavigation;
@@ -42,18 +43,16 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
       };
 
       loadComic = function (comicId) {
-        $scope.loading = true;
         var succes, error,
           deferred = $q.defer();
 
         success = function (response) {
             deferred.resolve(response);
-            // TODO: message
           };
 
         error = function (response) {
           deferred.reject(response);
-          // TODO: message
+          // TODO?
         };
 
         Comic.get({id: comicId}, success, error);
@@ -69,10 +68,10 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
               findNeighbours();
               markNavigation();
             }
-            $scope.loading = false;
+            $scope.isLoading(false);
           });
         } else {
-          $scope.loading = false;
+          $scope.isLoading(false);
         }
       }
 

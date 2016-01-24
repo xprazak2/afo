@@ -1,6 +1,6 @@
 angular.module('Afo.layout').controller('LayoutCtrl',
-  ['$scope', 'Constants', 'Auth',
-    function ($scope, Constants, Auth) {
+  ['$scope', 'Constants', 'Auth', '$rootScope',
+    function ($scope, Constants, Auth, $rootScope) {
 
       $scope.firstId = Constants.firstId;
       $scope.lastId = Constants.lastId;
@@ -22,5 +22,8 @@ angular.module('Afo.layout').controller('LayoutCtrl',
         $scope.currentUser = null;
       });
 
+      $scope.isLoading = function (value) {
+        $rootScope.loading = value;
+      }
     }
 ]);

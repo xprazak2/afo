@@ -5,6 +5,7 @@ angular.module('Afo.comics').controller('ComicsNewCtrl',
       $scope.comic = new Comic();
       $scope.file = {};
       $scope.working = false;
+      $scope.isLoading(false);
 
       var success, error, parseFileContent;
 

@@ -18,4 +18,6 @@
   </ul>
 
 </div>
-<div ui-view></div>
+<div ui-view ng-show="!loading"></div>
+<div class="sk-spinner sk-spinner-pulse app-spinner" ng-show="loading"></div>
+
