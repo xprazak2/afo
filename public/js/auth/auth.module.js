@@ -1,6 +1,6 @@
-// angular.module('Afo.auth', []);
+angular.module('Afo.auth', []);
 
-angular.module('Afo.services').service('Auth',
+angular.module('Afo.auth').service('Auth',
   ['CurrentUser',
      function (CurrentUser) {
       currentUser = CurrentUser;

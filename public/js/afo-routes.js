@@ -27,12 +27,14 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     .state('layout.comics.list', {
       url: '/comics',
       controller: 'ComicsListCtrl',
-      templateUrl: '/comics/views/comics-list.html'
+      templateUrl: '/comics/views/comics-list.html',
+      authorize: true
     })
     .state('layout.comics.new', {
       url: '/comics/new',
       controller: 'ComicsNewCtrl',
-      templateUrl: '/comics/views/comics-new.html'
+      templateUrl: '/comics/views/comics-new.html',
+      authorize: true
     })
     .state('layout.comics.show', {
       url: '/{comicId:int}',
@@ -46,12 +48,18 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     .state('layout.users.show', {
       url: '/users/:userId',
       controller: 'UsersShowCtrl',
-      templateUrl: '/users/views/users-show.html'
+      templateUrl: '/users/views/users-show.html',
+      authorize: true
     })
     .state('layout.users.edit', {
       url: '/users/:userId/edit',
       controller: 'UsersEditCtrl',
-      templateUrl: '/users/views/users-edit.html'
+      templateUrl: '/users/views/users-edit.html',
+      authorize: true
+    })
+    .state('unauthorized', {
+      url: '/unauthorized',
+      templateUrl: '/layout/views/unauthorized.html'
     })
   }
 ]);

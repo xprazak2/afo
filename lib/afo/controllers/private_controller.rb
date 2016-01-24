@@ -22,7 +22,7 @@ module Afo
     end
 
     get '/logout' do
-      # warden.logout
+      warden.logout
       content_type :json
       { message: "OK" }.to_json
     end

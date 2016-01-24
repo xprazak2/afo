@@ -15,7 +15,7 @@ module Afo
     end
 
     put "/:id" do
-      #preliminary solution
+      #preliminary solution, not using this endpoint yet
       @comic = find_resource
       begin
         @comic.save
@@ -56,6 +56,5 @@ module Afo
         render_error "Could not find comic file on the server."
       end
     end
-
   end
 end

@@ -14,13 +14,11 @@
                                                lastId: <%= ids[-1] || -1 %>,
                                                ids: <%= ids %> });
     <% if current_user %>
-    angular.module('Afo').constant('CurrentUser', { id: <%= current_user.id %>,
-                                                    name: <%= current_user.name %>,
-                                                    last_login: <%= current_user.last_login %> });
+      angular.module('Afo').constant('CurrentUser', { id: <%= current_user.id %>,
+                                                      name: '<%= current_user.name %>',
+                                                      last_login: <%= current_user.last_login || "null" %> });
     <% else %>
-    // angular.module('Afo').constant('CurrentUser', null);
-    angular.module('Afo').constant('CurrentUser',
-     { id: 4, name: "TestAdmin", last_login: "17. 8. 1583"});
+      angular.module('Afo').constant('CurrentUser', null);
     <% end %>
   </script>
   <%= javascript_tag 'afo-components' %>

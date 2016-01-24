@@ -5,4 +5,7 @@
 //=require "vendors/ng-notify/ng-notify.js"
 //=require "vendors/angular-validation-match/angular-validation-match.js"
 
+//=require "auth/auth.module.js"
+//=require_tree "./auth"
+
 //=require "afo.module.js"

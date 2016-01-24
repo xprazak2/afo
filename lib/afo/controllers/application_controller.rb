@@ -10,7 +10,6 @@ module Afo
 
       def authenticate!
         user = User.authenticate(params['user']['name'], params['user']['password'])
-        binding.pry
         if user.nil?
           pass
         else

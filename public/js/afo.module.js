@@ -4,15 +4,22 @@ angular.module('Afo', [
   'ngDialog',
   'ngNotify',
   'validation.match',
+  'Afo.auth'
 ])
-.run(['ngNotify',
-  function (ngNotify) {
+.run(['ngNotify', '$rootScope', 'Auth', '$location',
+  function (ngNotify, $rootScope, Auth, $location) {
     ngNotify.config({
       position: 'top',
       theme: 'pitchy',
       button: 'false',
       duration: 2500,
       button: false
+    });
+
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      if (toState.authorize && !Auth.authorized() ) {
+        $location.path("/unauthorized").replace();
+      }
     });
   }
 ]);

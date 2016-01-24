@@ -4,6 +4,7 @@ angular.element(document).ready(function () {
 });
 
 Modules = [
+  'Afo.auth',
   'Afo',
   'Afo.layout',
   'Afo.comics',

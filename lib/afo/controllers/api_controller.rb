@@ -16,5 +16,15 @@ module Afo
       halt 404, { error: 'URL not found' }.to_json
     end
 
+    set(:methods) do |*methods|
+      condition do
+        methods.map! { |method| method.to_s.upcase }
+        methods.include? request.request_method
+      end
+    end
+
+    before :methods => [:post, :put, :delete] do
+      halt 401, { error: 'Not authorized'}.to_json unless warden.authenticated?
+    end
   end
 end
