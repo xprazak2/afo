@@ -26,7 +26,7 @@ module Afo
   DataMapper.finalize.auto_upgrade!
 
   require 'rendering'
-  require 'api'
+  require 'api_controller'
   require 'users_controller'
   require 'contents_controller'
   require 'comics_controller'
