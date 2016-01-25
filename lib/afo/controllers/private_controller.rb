@@ -5,7 +5,7 @@ module Afo
   class PrivateController < ApplicationController
 
     helpers do
-      include Sprockets::Helpers
+      include ::Sprockets::Helpers
     end
 
     get '/?' do

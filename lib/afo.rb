@@ -32,6 +32,7 @@ module Afo
   ::Sinatra::Base.set :views, APP_ROOT + '/views'
   ::Sinatra::Base.set :public_folder, APP_ROOT + '/public'
 
+  require 'version'
   require 'settings'
   require 'logging'
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
