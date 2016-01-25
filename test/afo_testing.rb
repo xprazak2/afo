@@ -31,4 +31,5 @@ module Afo
   require 'users_controller'
   require 'contents_controller'
   require 'comics_controller'
+  require 'private_controller'
 end
