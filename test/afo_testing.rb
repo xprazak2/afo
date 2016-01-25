@@ -17,6 +17,7 @@ module Afo
   require 'settings'
   require 'kramdown'
   require 'warden'
+  require 'sprockets-helpers'
   DataMapper::Resource.send :include, Logging
   require 'user'
   require 'comic'
