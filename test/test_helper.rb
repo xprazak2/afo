@@ -31,6 +31,10 @@ module Afotest
       @admin = Afo::User.create(:name => "TestUser", :password => "changeme")
     end
 
+    def admin
+      @admin
+    end
+
     def teardown
       logout
       Warden.test_reset!
