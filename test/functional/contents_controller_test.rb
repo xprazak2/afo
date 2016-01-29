@@ -15,7 +15,7 @@ module Afo
     end
 
     def test_update
-      params = {:id => @content.id, :content => {:title => "new title", :content => "very pretty"}}
+      params = { :id => @content.id, :content => { :title => "new title", :content => "very pretty" }}
       put "/#{@content.id}", params
       assert last_response.ok?
       data = JSON.parse(last_response.body)

@@ -26,7 +26,7 @@ module Afo
     end
 
     def test_create_fail
-      Afo::Comic.any_instance.expects(:save_file).returns(true)
+      Afo::Comic.any_instance.expects(:save_file).returns(true).never
       post "/", { :comic => { :title => "test comic", :name => "test.png" }}
       assert_equal 422, last_response.status
       data = JSON.parse(last_response.body)

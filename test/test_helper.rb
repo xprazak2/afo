@@ -23,12 +23,12 @@ module Afotest
 
     def setup
       super
-      login_as @user
+      login_as @admin
     end
 
     def before_all
       super
-      @user = Afo::User.create(:name => "TestUser", :password => "changeme")
+      @admin = Afo::User.create(:name => "TestUser", :password => "changeme")
     end
 
     def teardown
@@ -38,7 +38,7 @@ module Afotest
     end
 
     def after_all
-      @user.destroy
+      @admin.destroy
       super
     end
   end

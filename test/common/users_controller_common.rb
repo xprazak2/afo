@@ -16,10 +16,10 @@ module Afo
     end
 
     def test_get_user_fail
-      get "/10"
+      get "/-10"
       assert_equal 422, last_response.status
       data = JSON.parse(last_response.body)
-      assert_equal "could not find user with id 10", data["message"]
+      assert_equal "could not find user with id -10", data["message"]
     end
   end
 end
