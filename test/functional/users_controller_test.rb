@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Afo
-  class UsersControllerTest < MiniTest::Unit::TestCase
+  class UsersControllerTest < Afotest::Test
 
     include Rack::Test::Methods
 
@@ -11,6 +11,7 @@ module Afo
 
     def setup
       @user = FactoryGirl.create("user")
+      super
     end
 
     def test_index

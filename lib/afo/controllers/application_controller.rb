@@ -11,7 +11,7 @@ module Afo
       def authenticate!
         user = User.authenticate(params['user']['name'], params['user']['password'])
         if user.nil?
-          pass
+          fail!("Could not log in")
         else
           success!(user)
         end

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Afo
-  class ComicsControllerTest < MiniTest::Unit::TestCase
+  class ComicsControllerTest < Afotest::Test
     include Rack::Test::Methods
 
     def app
@@ -13,13 +13,14 @@ module Afo
       @comic_2 = FactoryGirl.create(:comic, :title => "second")
       Afo::Comic.any_instance.stubs(:load_file).returns("loaded")
       Afo::Comic.any_instance.stubs(:file).returns("loaded")
+      super
     end
 
     def test_index
       get '/'
       assert last_response.ok?
       data = JSON.parse(last_response.body)
-      assert_equal @comic.title, data.first["title"]
+      assert data.map { |item| item['title'] }.include?(@comic.title)
     end
 
     def test_get

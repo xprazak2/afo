@@ -1,7 +1,8 @@
 require 'test_helper'
 
 module Afo
-  class ContentsControllerTest < MiniTest::Unit::TestCase
+  class ContentsControllerTest < Afotest::Test
+
     include Rack::Test::Methods
 
     def app
@@ -10,6 +11,7 @@ module Afo
 
     def setup
       @content = FactoryGirl.create(:content)
+      super
     end
 
     def test_get_content

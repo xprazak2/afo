@@ -11,6 +11,9 @@ module Afo
   ::Sinatra::Base.set :public_folder, APP_ROOT + '/public'
   ::Sinatra::Base.set :views, APP_ROOT + '/views'
 
+  require 'pry'
+  require 'pry-byebug'
+
   require 'json'
   #data model related
   require 'logging'

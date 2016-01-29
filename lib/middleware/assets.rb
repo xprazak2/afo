@@ -6,9 +6,9 @@ module Middleware
   class Assets < Sinatra::Base
     configure do
       set :assets, (::Sprockets::Environment.new { |env|
-        # env.append_path(settings.root + "/assets/images")
         env.append_path(settings.root + "/public/js")
         env.append_path(settings.root + "/public/css")
+        env.append_path(settings.root + "/public/images")
 
         # compress everything in production
         # if ENV["RACK_ENV"] == "production"
@@ -45,12 +45,12 @@ module Middleware
     send_file File.join(settings.assets.paths.first, params[:splat], "views", "#{params[:file]}.html")
   end
 
-  # %w{jpg png}.each do |format|
-  #   get "/assets/:image.#{format}" do |image|
-  #     content_type("image/#{format}")
-  #     settings.assets["#{image}.#{format}"]
-  #   end
-  # end
+  %w{svg}.each do |format|
+    get "/assets/:image.#{format}" do |image|
+      content_type("image/#{format}")
+      settings.assets["#{image}.#{format}"]
+    end
+  end
 
   end
 end

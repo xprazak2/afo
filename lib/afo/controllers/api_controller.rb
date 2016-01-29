@@ -24,7 +24,7 @@ module Afo
     end
 
     before :methods => [:post, :put, :delete] do
-      halt 401, { error: 'Not authorized'}.to_json unless warden.authenticated?
+      halt 401, { error: 'Not authenticated'}.to_json unless warden.authenticated?
     end
   end
 end

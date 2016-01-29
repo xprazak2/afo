@@ -22,7 +22,8 @@ group :development do
 end
 
 group :test, :development do
-  gem 'minitest'
+  gem 'minitest', '~> 5.0'
+  gem 'minitest-hooks'
   gem "rack-test"
   gem "factory_girl"
   gem "database_cleaner"

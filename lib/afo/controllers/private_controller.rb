@@ -14,11 +14,7 @@ module Afo
 
     post '/login' do
       warden.authenticate!
-      if current_user
-        redirect '/'
-      else
-        redirect '/private'
-      end
+      redirect '/'
     end
 
     get '/logout' do
@@ -27,5 +23,8 @@ module Afo
       { message: "OK" }.to_json
     end
 
+    post '/unauthenticated/?' do
+      redirect '/private', 401
+    end
   end
 end

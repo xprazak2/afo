@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user, :class => Afo::User do
-    name "admin"
+    sequence(:name) { |n| "admin#{n}" }
     password "changeme"
   end
 
@@ -14,7 +14,7 @@ FactoryGirl.define do
   end
 
   factory :content, :class => Afo::Content do
-    title "some_name"
+    sequence(:title) { |n| "test_name_#{n}" }
     content "some_content"
   end
 end
