@@ -19,7 +19,7 @@ module Afo
     end
 
     def test_next_on_last
-      c = @comics[7]
+      c = @comics.last
       cc = c.next
       assert_nil cc
     end
