@@ -12,6 +12,10 @@ require 'rack/test'
 require 'factory_girl_init'
 require 'factories'
 
+require 'common/comics_controller_common'
+require 'common/contents_controller_common'
+require 'common/users_controller_common'
+
 module Afotest
   class Test < Minitest::Test
     include Minitest::Hooks

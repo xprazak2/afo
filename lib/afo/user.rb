@@ -34,8 +34,8 @@ module Afo
 
     def update(params)
       #workaround for possible bug in DataMapper for hashed fields
-      self.password = params[:password] || self.password
-      save
+      pass = params[:password] || self.password
+      super params.merge!(:password => pass)
     end
   end
 end

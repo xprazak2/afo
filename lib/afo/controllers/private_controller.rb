@@ -24,7 +24,12 @@ module Afo
     end
 
     post '/unauthenticated/?' do
-      redirect '/private', 401
+      redirect '/private'
+    end
+
+    post '/unauthenticated_api/?' do
+      content_type :json
+      halt 401, { error: "Not authenticated" }.to_json
     end
   end
 end

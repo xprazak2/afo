@@ -2,8 +2,8 @@ require 'test_helper'
 
 module Afo
   class UsersControllerTest < Afotest::Test
-
     include Rack::Test::Methods
+    include Afo::UsersControllerCommon
 
     def app
       Afo::UsersController
@@ -14,29 +14,7 @@ module Afo
       super
     end
 
-    def test_index
-      get '/'
-      assert last_response.ok?
-      data = JSON.parse(last_response.body)
-      assert_equal @user.name, data.first["name"]
-    end
-
-    def test_get_user
-      get "/#{@user.id}"
-      assert last_response.ok?
-      data = JSON.parse(last_response.body)
-      assert_equal @user.name, data["name"]
-      assert_equal @user.id, data["id"]
-    end
-
-    def test_get_user_fail
-      get "/10"
-      assert_equal 422, last_response.status
-      data = JSON.parse(last_response.body)
-      assert_equal "could not find user with id 10", data["message"]
-    end
-
-    def test_put_user
+    def test_update_user
       params = {:id => @user.id, :user => {:id => @user.id,
                                            :name => "administrator",
                                            :password => "changeme_really"}}
@@ -46,7 +24,7 @@ module Afo
       assert_equal "administrator", data["name"]
     end
 
-    def test_put_user_fail
+    def test_update_user_fail
       params = {:id => @user.id, :user => {:id => @user.id,
                                            :name => "a",
                                            :password => "changeme_really"}}

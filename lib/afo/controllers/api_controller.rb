@@ -24,7 +24,7 @@ module Afo
     end
 
     before :methods => [:post, :put, :delete] do
-      halt 401, { error: 'Not authenticated'}.to_json unless warden.authenticated?
+      throw :warden, :action => '/unauthenticated_api' unless warden.authenticated?
     end
   end
 end

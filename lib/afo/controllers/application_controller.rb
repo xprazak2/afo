@@ -21,7 +21,9 @@ module Afo
     use Warden::Manager do |config|
       config.serialize_into_session { |user| user.id }
       config.serialize_from_session { |id| User.get id }
-      config.default_strategies :password
+      config.scope_defaults :default,
+                            :strategies => [:password],
+                            :action => 'unauthenticated'
       config.failure_app = Afo::PrivateController
     end
 

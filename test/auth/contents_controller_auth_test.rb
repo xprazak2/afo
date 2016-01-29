@@ -1,25 +1,20 @@
 require 'test_helper'
 
 module Afo
-  class ContentsControllerTest < Afotest::Test
+  class ContentsControllerAuthTest < Minitest::Test
     include Rack::Test::Methods
-    include Afo::ContentsControllerCommon
 
     def app
       Afo::ContentsController
     end
 
-    def setup
-      @content = FactoryGirl.create(:content)
-      super
-    end
-
     def test_update
+      @content = FactoryGirl.create(:content)
       params = {:id => @content.id, :content => {:title => "new title", :content => "very pretty"}}
       put "/#{@content.id}", params
-      assert last_response.ok?
+      assert_equal 401, last_response.status
       data = JSON.parse(last_response.body)
-      assert_equal params[:content][:title], data["title"]
+      assert_equal 'Not authenticated', data["error"]
     end
   end
 end
