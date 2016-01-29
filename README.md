@@ -7,7 +7,7 @@ Features:
 * Graphical interface for authorized users to manage the content, created as (almost) SPA with angular
 * Supports markdown (via [kramdown](http://kramdown.gettalong.org/))
 
-Does not support color themes, but if you really want to use this instead of some hyper-super-ultra-mega-über sophisticated CMS developed by a multicultural team of various faiths and beliefs distributed accross three continents and five timezones who actually knew what they were doing, then I guess you have a nature adventurous enough to change my stylesheets by hand. The lack of extensibility comes with the fact that this application has been created for educational and entertainment purposes of its author, who provides __absolutely no guarantee whatsoever__ that this will work as expected.
+Does not support color themes, but if you really want to use this instead of some hyper-super-ultra-mega-über sophisticated CMS developed by a multicultural team of various faiths and beliefs distributed accross three continents and five timezones, then I guess you have a nature adventurous enough to change my stylesheets by hand. The lack of extensibility comes with the fact that this application has been created for educational and entertainment purposes of its author, who provides __absolutely no guarantee whatsoever__ that this will work as expected.
 
 ### development setup
 * bundle install
