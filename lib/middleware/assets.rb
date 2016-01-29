@@ -8,7 +8,7 @@ module Middleware
       set :assets, (::Sprockets::Environment.new { |env|
         env.append_path(settings.root + "/public/js")
         env.append_path(settings.root + "/public/css")
-        env.append_path(settings.root + "/public/images")
+        # env.append_path(settings.root + "/public/images")
 
         # compress everything in production
         # if ENV["RACK_ENV"] == "production"
@@ -45,12 +45,11 @@ module Middleware
     send_file File.join(settings.assets.paths.first, params[:splat], "views", "#{params[:file]}.html")
   end
 
-  %w{svg}.each do |format|
-    get "/assets/:image.#{format}" do |image|
-      content_type("image/#{format}")
-      settings.assets["#{image}.#{format}"]
-    end
-  end
-
+  # %w{svg png jpg}.each do |format|
+  #   get "/assets/:image.#{format}" do |image|
+  #     content_type("image/#{format}")
+  #     settings.assets["#{image}.#{format}"]
+  #   end
+  # end
   end
 end
