@@ -5,10 +5,11 @@ module Afo
 
     def setup
       @user = FactoryGirl.create(:user)
-      @comics = []
+      @comics = Afo::Comic.all
       8.times do
         @comics << FactoryGirl.create(:comic, :user => @user)
       end
+      @comics.sort!
     end
 
     def test_next
