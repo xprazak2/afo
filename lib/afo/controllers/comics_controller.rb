@@ -30,6 +30,7 @@ module Afo
       begin
         raise "Original file name with extension not supplied" unless params[:comic][:name]
         raise "No comic file supplied!" unless params[:comic][:file]
+        @comic.user = current_user
         @comic.save
         render_resource
       rescue => e

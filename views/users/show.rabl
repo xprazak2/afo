@@ -1,2 +1,4 @@
 object @user
-attributes :id, :name, :last_login
+attributes :id, :last_login
+
+node(:name) { |u| u.to_initial }

@@ -38,7 +38,7 @@ module Afo
 
     def test_all_ids_asc
       ids = Comic.all_ids_asc
-      assert_equal ids.length, 8
+      assert_equal ids.length, @comics.count
       first = ids.shift
       ids.each { |id| assert id > first }
     end
