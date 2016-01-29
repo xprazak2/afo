@@ -17,7 +17,7 @@
         <td>{{ comic.id }}</td>
         <td>{{ comic.title }}</td>
         <td>{{ comic.created_at }}</td>
-        <td class="table-action">{{ comic.user ? comic.user.name : '' }}</td>
+        <td class="table-action">{{ comic.user ? comic.user.initial : '' }}</td>
         <td class="table-action">
           <a href confirm-modal model="comic"
                   action="deleteComic(comic)"

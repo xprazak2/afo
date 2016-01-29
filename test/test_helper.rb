@@ -28,7 +28,7 @@ module Afotest
 
     def before_all
       super
-      @admin = Afo::User.create(:name => "TestUser", :password => "changeme")
+      @admin = FactoryGirl.create(:user)
     end
 
     def admin
@@ -38,11 +38,6 @@ module Afotest
     def teardown
       logout
       Warden.test_reset!
-      super
-    end
-
-    def after_all
-      @admin.destroy
       super
     end
   end
