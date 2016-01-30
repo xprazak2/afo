@@ -63,7 +63,7 @@ namespace :deploy do
   end
 
   #rake deploy:production['heroku-app-name']
-  task :production, [:app] => [:backup_settings, :restore_settings, :reboot]
+  task :production, [:app] => [:backup_settings, :reboot]
 
   task :backup_settings do
     git = Git.open('.', :log => @logger)
@@ -80,7 +80,6 @@ namespace :deploy do
 
   task :restore_settings do
     @logger.debug "restoring settings"
-    @logger.debug FileUtils.pwd
     copy_file @config_backup, @config
     FileUtils.rm @config_backup
   end

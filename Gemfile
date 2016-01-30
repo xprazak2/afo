@@ -18,6 +18,7 @@ gem 'git'
 
 group :production do
   gem 'passenger'
+  gem 'pg'
 end
 
 group :development do
