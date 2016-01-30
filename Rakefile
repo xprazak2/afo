@@ -73,7 +73,7 @@ namespace :deploy do
     copy_file @config, @config_backup
     git.add
     git.commit "Rake auto commit before heroku deploy"
-    git.push 'heroku', "#{new_branch}:master"
+    git.push 'heroku', "#{new_branch}:master", :force => true
     git.branch('master').checkout
     system "heroku run rake deploy:restore_settings"
   end
