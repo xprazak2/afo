@@ -2,6 +2,8 @@ require 'rake'
 require 'rake/testtask'
 require 'yaml'
 require 'rack'
+require 'fileutils'
+require 'git'
 
 task :start do
   #sh "thin -p 4567 -D -R config.ru start"
@@ -48,4 +50,36 @@ task :middleware do
   end
   app = Rack::Builder.parse_file('config.ru').first
   p middleware_classes(app)
+end
+
+namespace :deploy do
+  @config = "./config/settings.yml"
+  @config_backup = "./config/settings_backup.yml"
+
+  def copy_file(source, dest)
+    FileUtils.cp source, dest if File.exist? source
+  end
+
+  task :production, :app => [:backup_settings, :restore_settings, :reboot]
+
+  task :backup_settings do
+    git = Git.open('.', :log => Logger.new(STDOUT))
+    git.branch 'master'
+    new_branch = "heroku_deploy_#{Time.now.to_i}"
+    git.branch new_branch
+    copy_file @config, @config_backup
+    git.add
+    git.commit "Rake auto commit before heroku deploy"
+    git.push 'heroku', "#{new_branch}:master"
+    system "heroku run rake deploy:restore_settings"
+  end
+
+  task :restore_settings do
+    copy_file @config_backup, @config
+    FileUtils.rm @config_backup
+  end
+
+  task :reboot, :app do |t, args|
+    system "heroku restart --app #{args[:app]}"
+  end
 end
