@@ -61,7 +61,7 @@ namespace :deploy do
     FileUtils.cp source, dest if File.exist? source
   end
 
-  task :production, [:app] => [:backup_settings, :restore_settings, :reboot]
+  task :production, [:app] => [:backup_settings]#, :restore_settings, :reboot]
 
   task :backup_settings do
     git = Git.open('.', :log => Logger.new(STDOUT))
@@ -71,8 +71,8 @@ namespace :deploy do
     copy_file @config, @config_backup
     git.add
     git.commit "Rake auto commit before heroku deploy"
-    git.push 'heroku', "#{new_branch}:master"
-    system "heroku run rake deploy:restore_settings"
+    # git.push 'heroku', "#{new_branch}:master"
+    # system "heroku run rake deploy:restore_settings"
   end
 
   task :restore_settings do
