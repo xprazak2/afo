@@ -1,8 +1,5 @@
 module Afo
   class ApplicationController < ::Sinatra::Base
-    enable :sessions
-    set :session_secret, "top_secret"
-
     ::Warden::Strategies.add(:password) do
       def valid?
         params['user'] && params['user']['name'] && params['user']['password']

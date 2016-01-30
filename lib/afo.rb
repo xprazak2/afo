@@ -24,6 +24,7 @@ require 'sprockets-helpers'
 require 'active_support/all'
 require 'kramdown'
 require 'warden'
+require 'encrypted_cookie'
 
 module Afo
 

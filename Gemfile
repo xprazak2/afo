@@ -13,6 +13,7 @@ gem 'rabl', '~> 0.11.6'
 gem 'rack-contrib'
 gem 'kramdown', '1.9.0'
 gem 'warden', '~> 1.2.4'
+gem 'encrypted_cookie'
 
 group :development do
   gem 'shotgun'

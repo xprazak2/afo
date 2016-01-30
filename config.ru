@@ -14,6 +14,14 @@ require File.join(app_dir, 'middleware', 'assets.rb')
 
 require 'rack/contrib'
 
+#using encrypted cookie instead of this
+#use Rack::Session::Cookie, :key => '_rack_session',
+#                           :path => '/',
+#                           :expire_after => 2592000, # In seconds
+#                           :secret => 'asdfa2342923422f1adc05c837fa234230e3594b93824b00e930ab0fb94b'
+
+use Rack::Session::EncryptedCookie, :secret => 'sdfa2342923422f1adc05c837fa234230e3594b93824b00e930ab0fb94bad58baf86ea5', :httponly => true
+use Rack::Protection
 use Rack::PostBodyContentTypeParser
 use Middleware::Assets
 

@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/testtask'
 require 'yaml'
+require 'rack'
 
 task :start do
   #sh "thin -p 4567 -D -R config.ru start"
@@ -32,4 +33,19 @@ task :destroy_sample_data do
   comics = YAML.load(File.read("test/data/data.yml"))
   records = comics[:comics].map { |c| Afo::Comic.first :title => c[:title] }.compact
   records.map(&:destroy)
+end
+
+#http://stackoverflow.com/questions/4008028/get-ordered-list-of-middleware-in-a-generic-rack-application
+task :middleware do
+  def middleware_classes(app)
+    r = [app]
+
+    unless (next_app = r.last.instance_variable_get(:@app)) == nil
+      r << next_app
+    end
+
+    r.map { |e| e.instance_variable_defined?(:@app) ? e.class : e }
+  end
+  app = Rack::Builder.parse_file('config.ru').first
+  p middleware_classes(app)
 end
