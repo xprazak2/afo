@@ -17,6 +17,7 @@ gem 'encrypted_cookie'
 
 group :production do
   gem 'passenger'
+  gem 'execjs'
 end
 
 group :development do
