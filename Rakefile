@@ -4,6 +4,7 @@ require 'yaml'
 require 'rack'
 require 'fileutils'
 require 'git'
+require 'logger'
 
 task :start do
   #sh "thin -p 4567 -D -R config.ru start"
@@ -60,7 +61,7 @@ namespace :deploy do
     FileUtils.cp source, dest if File.exist? source
   end
 
-  task :production, :app => [:backup_settings, :restore_settings, :reboot]
+  task :production, [:app] => [:backup_settings, :restore_settings, :reboot]
 
   task :backup_settings do
     git = Git.open('.', :log => Logger.new(STDOUT))
