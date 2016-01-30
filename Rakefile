@@ -54,6 +54,7 @@ task :middleware do
 end
 
 namespace :deploy do
+  @logger = Logger.new(STDOUT)
   @config = "./config/settings.yml"
   @config_backup = "./config/settings_backup.yml"
 
@@ -61,11 +62,11 @@ namespace :deploy do
     FileUtils.cp source, dest if File.exist? source
   end
 
+  #rake deploy:production['heroku-app-name']
   task :production, [:app] => [:backup_settings, :restore_settings, :reboot]
 
   task :backup_settings do
-    logger = Logger.new(STDOUT)
-    git = Git.open('.', :log => logger)
+    git = Git.open('.', :log => @logger)
     git.branch 'master'
     new_branch = "heroku_deploy_#{Time.now.to_i}"
     git.branch(new_branch).checkout
@@ -77,6 +78,8 @@ namespace :deploy do
   end
 
   task :restore_settings do
+    @logger.debug "restoring settings"
+    @logger.debug FileUtils.pwd
     copy_file @config_backup, @config
     FileUtils.rm @config_backup
   end

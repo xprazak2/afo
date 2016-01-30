@@ -3,7 +3,11 @@ require 'logging'
 
 module Afo
   class Settings
-    include Afo::Logging
+    extend Afo::Logging
+
+    def self.[](item)
+      @@settings[item]
+    end
 
     if ENV['RACK_ENV'] != 'test'
       if File.exists?("#{APP_ROOT}/config/settings.yml")
@@ -14,10 +18,6 @@ module Afo
       end
     else
       @@settings = { :log_level => 'DEBUG' }
-    end
-
-    def self.[](item)
-      @@settings[item]
     end
   end
 end
