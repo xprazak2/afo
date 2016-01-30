@@ -69,7 +69,6 @@ GEM
     do_sqlite3 (0.10.17)
       data_objects (= 0.10.17)
     encrypted_cookie (0.0.4)
-    execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     fastercsv (1.5.5)
@@ -152,7 +151,6 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   encrypted_cookie
-  execjs
   factory_girl
   kramdown (= 1.9.0)
   minitest (~> 5.0)
