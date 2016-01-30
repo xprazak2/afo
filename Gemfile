@@ -15,6 +15,10 @@ gem 'kramdown', '1.9.0'
 gem 'warden', '~> 1.2.4'
 gem 'encrypted_cookie'
 
+group :production do
+  gem 'passenger'
+end
+
 group :development do
   gem 'shotgun'
   gem 'tux'

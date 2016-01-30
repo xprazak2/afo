@@ -86,6 +86,9 @@ GEM
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.2)
+    passenger (5.0.23)
+      rack
+      rake (>= 0.8.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -154,6 +157,7 @@ DEPENDENCIES
   minitest-around
   minitest-hooks
   mocha
+  passenger
   pry
   pry-byebug
   rabl (~> 0.11.6)
