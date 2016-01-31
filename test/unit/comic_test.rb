@@ -10,6 +10,7 @@ module Afo
         @comics << FactoryGirl.create(:comic, :user => @user)
       end
       @comics.sort!
+      Afo::Comic.any_instance.stubs(:load_file)
     end
 
     def test_next

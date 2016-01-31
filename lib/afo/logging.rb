@@ -21,12 +21,16 @@ module Afo
 
     def self.logger
       level = nil
-      if Afo.env == 'development'
+      #will be changed when settings loaded anyway
+      case Afo.env
+      when 'development'
         file = STDOUT
         level = ::Logger.const_get('DEBUG')
-      else
-        file = STDOUT
-        level = ::Logger.const_get('DEBUG')
+      when 'test'
+        file = nil
+        level = ::Logger.const_get('ERROR')
+      when 'production'
+        level = ::Logger.const_get('INFO')
       end
       logger = ::Logger.new(file)
       logger.level = level
