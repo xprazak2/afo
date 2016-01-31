@@ -41,3 +41,4 @@ config/settings.yml
 node_modules/
 public/js/vendors/*
 public/css/vendors/*
+!public/css/vendors/icomoon
