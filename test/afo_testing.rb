@@ -11,6 +11,10 @@ module Afo
   ::Sinatra::Base.set :public_folder, APP_ROOT + '/public'
   ::Sinatra::Base.set :views, APP_ROOT + '/views'
 
+  def self.env
+    ENV['RACK_ENV']
+  end
+
   require 'pry'
   require 'pry-byebug'
 
