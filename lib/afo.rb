@@ -26,7 +26,12 @@ require 'kramdown'
 require 'warden'
 require 'encrypted_cookie'
 
+
 module Afo
+
+  def self.env
+    ENV['RACK_ENV']
+  end
 
   ::Sinatra::Base.set :run, false
   ::Sinatra::Base.set :root, APP_ROOT
@@ -36,6 +41,7 @@ module Afo
   require 'logging'
   require 'version'
   require 'settings'
+  Afo::Logging.logger.level = ::Logger.const_get(Afo::Settings[:log_level].upcase)
   ::Sinatra::Base.use Rack::CommonLogger, ::Afo::Logging.file
 
   DataMapper::Resource.send :include, Logging

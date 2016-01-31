@@ -20,11 +20,16 @@ module Afo
     end
 
     def self.logger
-      env = ::Sinatra::Base.settings.environment
-      # file = env == :development ? STDOUT : @@file
-      file = STDOUT
+      level = nil
+      if Afo.env == 'development'
+        file = STDOUT
+        level = ::Logger.const_get('DEBUG')
+      else
+        file = STDOUT
+        level = ::Logger.const_get('DEBUG')
+      end
       logger = ::Logger.new(file)
-      logger.level = ::Logger.const_get(Afo::Settings[:log_level].upcase)
+      logger.level = level
       logger
     end
   end

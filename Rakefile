@@ -55,8 +55,8 @@ end
 
 namespace :deploy do
   @logger = Logger.new(STDOUT)
-  @config = "./config/settings.yml"
-  @config_backup = "./config/settings_backup.yml"
+  @config = "./config/settings.d/settings.local.yml"
+  @config_backup = "./config/settings.d/settings.production.yml"
 
   def copy_file(source, dest)
     if File.exist?(source)
@@ -80,13 +80,6 @@ namespace :deploy do
     git.commit "Rake auto commit before heroku deploy"
     git.push 'heroku', "#{new_branch}:master", :force => true
     git.branch('master').checkout
-    system "heroku run rake deploy:restore_settings"
-  end
-
-  task :restore_settings do
-    @logger.debug "restoring settings"
-    copy_file @config_backup, @config
-    FileUtils.rm @config_backup
   end
 
   task :reboot, :app do |t, args|
