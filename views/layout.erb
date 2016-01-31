@@ -10,8 +10,8 @@
   <script>
    <% ids = Afo::Comic.all.map(&:id) %>
     angular.module('Afo').constant('Constants', { comicCount: <%= ids.count %>,
-                                               firstId: <%= ids[0] || -1 %>,
-                                               lastId: <%= ids[-1] || -1 %>,
+                                               firstId: <%= ids[0] || 0 %>,
+                                               lastId: <%= ids[-1] || 0 %>,
                                                ids: <%= ids %> });
     <% if current_user %>
       angular.module('Afo').constant('CurrentUser', { id: <%= current_user.id %>,

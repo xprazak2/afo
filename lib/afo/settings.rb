@@ -8,6 +8,10 @@ module Afo
       @@settings[item]
     end
 
+    def self.all
+      @@settings
+    end
+
     @@settings ||= Afo::SettingsLoader.new.load
   end
 end

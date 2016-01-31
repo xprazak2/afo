@@ -13,8 +13,8 @@ angular.module('Afo.layout').controller('LayoutCtrl',
           return id !== listedId;
         });
 
-        $scope.firstId = $scope.ids[0] || -1
-        $scope.lastId = $scope.ids[$scope.ids.length - 1] || -1
+        $scope.firstId = $scope.ids[0] || 0
+        $scope.lastId = $scope.ids[$scope.ids.length - 1] || 0
       });
 
       $scope.$on('logout', function (event) {

@@ -15,6 +15,7 @@ module Afo
        "/comics/new",
        "/comics",
        "/unauthorized",
+       "/unknown",
        /\/users\/\d+/
       ]
     end

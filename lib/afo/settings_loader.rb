@@ -19,8 +19,8 @@ module Afo
      ]
      .each { |filename| load_file filename }
      load_production_db_config if Afo.env == 'production'
-     logger.debug "Initialized with settings:"
-     logger.debug @settings
+     # logger.debug "Initialized with settings:"
+     # logger.debug @settings
      @settings
     end
 
@@ -31,10 +31,10 @@ module Afo
     def load_file(filename)
       filename = by_name filename
       if File.exists? filename
-        logger.debug "Loading settings file #{filename}"
+        # logger.debug "Loading settings file #{filename}"
         @settings.merge! YAML.load_file(filename)
       else
-        logger.warn "Cannot find #{filename} file, skipping"
+        # logger.warn "Cannot find #{filename} file, skipping"
       end
     end
 

@@ -26,7 +26,6 @@ require 'kramdown'
 require 'warden'
 require 'encrypted_cookie'
 
-
 module Afo
 
   def self.env

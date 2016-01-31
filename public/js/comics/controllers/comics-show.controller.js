@@ -3,7 +3,6 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
     function ($scope, $q, $stateParams, Comic, Constants) {
 
       $scope.comic = $scope.comic || null;
-      console.log($scope.loading)
 
       var loadComic, getComic, random, neighbour, chooseRandom, findNeighbours,
           markNavigation;
@@ -31,10 +30,14 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
       };
 
       chooseRandom = function () {
-        do {
-          $scope.randomId = $scope.ids[random()];
+        if (Constants.comicCount == 1) {
+          $scope.randomId = $scope.comic.id;
+        } else{
+          do {
+            $scope.randomId = $scope.ids[random()];
+          }
+          while($scope.randomId == $scope.comic.id);
         }
-        while($scope.randomId == $scope.comic.id);
       };
 
       markNavigation = function () {
@@ -73,7 +76,7 @@ angular.module('Afo.comics').controller('ComicsShowCtrl',
         } else {
           $scope.isLoading(false);
         }
-      }
+      };
 
       getComic($stateParams.comicId);
     }

@@ -5,7 +5,8 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       //or get higher angular version instead
       requireBase: false
     });
-    $urlRouterProvider.when("/", "/" + Constants.lastId)
+    $urlRouterProvider.when("/", "/" + Constants.lastId);
+    $urlRouterProvider.otherwise("/unknown");
 
     var contentPages = ['about', 'disclaimer'].join('|');
 
@@ -39,7 +40,7 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
     .state('layout.comics.show', {
       url: '/{comicId:int}',
       controller: 'ComicsShowCtrl',
-      templateUrl: '/comics/views/comics-show.html'
+      templateUrl: '/comics/views/comics-show.html',
     })
     .state('layout.users', {
       abstract: true,
@@ -61,5 +62,10 @@ angular.module('Afo').config(['$locationProvider', '$stateProvider', '$urlRouter
       url: '/unauthorized',
       templateUrl: '/layout/views/unauthorized.html'
     })
+    .state('layout.unknown', {
+      url: '/unknown',
+      controller: 'UnknownCtrl',
+      templateUrl: '/layout/views/unknown.html'
+    });
   }
 ]);

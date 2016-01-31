@@ -8,7 +8,6 @@
 # WARN, DEBUG, ERROR, FATAL, INFO, UNKNOWN
 :log_level: INFO
 
-
 ## db setup
 :db_user: "postgres"
 :db_password: "changeme"
