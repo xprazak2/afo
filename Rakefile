@@ -59,7 +59,12 @@ namespace :deploy do
   @config_backup = "./config/settings_backup.yml"
 
   def copy_file(source, dest)
-    FileUtils.cp source, dest if File.exist? source
+    if File.exist?(source)
+       @logger.debug FileUtils.pwd
+    else
+      @logger.debug "#{source} does not exist for #{FileUtils.pwd}"
+    end
+    @logger.debug FileUtils.cp(source, dest, :verbose => true) if File.exist? source
   end
 
   #rake deploy:production['heroku-app-name']
